@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{e78f3f84-9259-4a77-ac10-59c4c44b92b1}">
+		<property name="assetPath">
+			<value>rollercoaster-ratchet.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>18.715283446712018</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{deed75b5-3e74-4018-8693-9308beb0a354}</destination>
+		</relationship>
+	</object>
+</objects>
