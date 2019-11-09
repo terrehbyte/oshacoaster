@@ -1,4 +1,11 @@
-﻿
+﻿public enum AssetTypes
+{
+    WALKABLE,
+    SCENERY,
+    ATTRACTION,
+    TRACK
+}
+
 public class CarRoot
 {
     public Car[] Property1 { get; set; }
@@ -27,6 +34,9 @@ public class BaseItem {
     public int quality { get; set; }
     public int maxspeed { get; set; }
     public int qtyInStock { get; set; }
+
+    public AssetTypes AssetType = AssetTypes.SCENERY;
+
 }
 
 public class InventoryItem

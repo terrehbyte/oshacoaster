@@ -54,12 +54,13 @@ public class StockList : MonoBehaviour
         foreach (BaseItem bi in trackRoot.Property1)
         {
             tmp = Instantiate(shopItemButton, contentHolder);
+            bi.AssetType = AssetTypes.TRACK;
             tmpBtn = tmp.GetComponent<StockButton>();
             tmpBtn.itemNameLbl.text = bi.itemname;
             tmpBtn.itemThumb.sprite = thumbs.FirstOrDefault<Sprite>(x => x.name == bi.prefab);
             tmpBtn.OriginalObject = bi;
         }
-        Invoke("DisableDesign", 1); 
+        Invoke("DisableDesign", .25f); 
     }
     void DisableDesign() { 
         DesignController.instance.gameObject.SetActive(false);
@@ -91,7 +92,8 @@ public class StockList : MonoBehaviour
             {
                 BuildTile bt = new BuildTile();
                 bt.buildPrefab = Resources.Load(CurrentItem.prefab) as GameObject;
-                bt.myName = CurrentItem.itemname; 
+                bt.myName = CurrentItem.itemname;
+                bt.TileType = CurrentItem.AssetType == AssetTypes.TRACK ? BuildTile.TileTypes.EAST : BuildTile.TileTypes.SCENARY;
                 CurrentItem.qtyInStock = 1;
                 bt.ForceValidate();
                 GamePlay.inventory.Add(CurrentItem.itemname, CurrentItem);
