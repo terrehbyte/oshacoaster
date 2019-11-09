@@ -29,7 +29,7 @@ public class StockList : MonoBehaviour
     public CanvasGroup fadeDialog;
     public TMP fadeDialogTMP;
     public TMP wallet;
- 
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -59,7 +59,9 @@ public class StockList : MonoBehaviour
             tmpBtn.itemThumb.sprite = thumbs.FirstOrDefault<Sprite>(x => x.name == bi.prefab);
             tmpBtn.OriginalObject = bi;
         }
-
+        Invoke("DisableDesign", 1); 
+    }
+    void DisableDesign() { 
         DesignController.instance.gameObject.SetActive(false);
     }
 
