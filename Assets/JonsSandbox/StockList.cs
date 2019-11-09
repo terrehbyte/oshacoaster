@@ -24,8 +24,11 @@ public class StockList : MonoBehaviour
     public TrackRoot trackRoot = new TrackRoot();
     public Transform contentHolder;
     public TMP[] mainDetails;
-    public CanvasGroup DetailsPane;
-    
+    public CanvasGroup detailsPane;
+    public CanvasGroup fadeDialog;
+    public TMP fadeDialogTMP;
+    public TMP wallet;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -39,11 +42,11 @@ public class StockList : MonoBehaviour
         carRoot.Property1 = JsonConvert.DeserializeObject<Car[]>(carInventory.ToString());
         trackRoot.Property1 = JsonConvert.DeserializeObject<Track[]>(trackInventory.ToString());
 
-        foreach(BaseItem bi in carRoot.Property1)
+        foreach (BaseItem bi in carRoot.Property1)
         {
             tmp = Instantiate(shopItemButton, contentHolder);
             tmpBtn = tmp.GetComponent<StockButton>();
-            tmpBtn.itemNameLbl .text = bi.itemname;
+            tmpBtn.itemNameLbl.text = bi.itemname;
             tmpBtn.itemThumb.sprite = thumbs.FirstOrDefault<Sprite>(x => x.name == bi.prefab);
             tmpBtn.OriginalObject = bi;
         }
@@ -59,19 +62,42 @@ public class StockList : MonoBehaviour
 
     public void ShowDetails(BaseItem Bi)
     {
-        if (DetailsPane.alpha == 0)
-            DetailsPane.DOFade(1, .3f);
-            
+        if (detailsPane.alpha == 0)
+            detailsPane.DOFade(1, .3f);
+
+        wallet.text = $"Balance: {GamePlay.coin}";
         mainDetails[0].text = Bi.itemname;
         mainDetails[1].text = $"{Bi.desc}\nPurchase price: {Bi.purchasecost.ToString()}\nRunning costs: {Bi.maintcost.ToString()}";
-
+        CurrentItem = Bi;
     }
-
+    BaseItem CurrentItem;
     public void CloseDetails()
     {
-        DetailsPane.DOFade(0, .3f);
+        detailsPane.DOFade(0, .3f);
     }
 
+    public void BuyItem()
+    {
+        if (GamePlay.inventory == null)
+            GamePlay.inventory = new List<BaseItem>();
+        if (GamePlay.coin > CurrentItem.purchasecost)
+        {
+            //TODO do the thing to say well done you brought soemthign.
+            GamePlay.inventory.Add(CurrentItem);
 
+            //DesignController.instance.add
 
+            GamePlay.coin -= CurrentItem.purchasecost;
+            wallet.text = $"Currante Balance:{GamePlay.coin.ToString()}";
+        }
+        else
+        {
+            //TODO do a different thing to say not enough cash.\
+            Sequence dialogBounceFade = DOTween.Sequence();
+            dialogBounceFade.Append(fadeDialog.DOFade(1, .3f));
+            dialogBounceFade.AppendInterval(1);
+            dialogBounceFade.Append(fadeDialog.DOFade(0, .3f));
+            dialogBounceFade.PlayForward();  
+        }
+    }
 }

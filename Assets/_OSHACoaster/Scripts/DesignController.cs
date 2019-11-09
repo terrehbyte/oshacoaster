@@ -9,6 +9,7 @@ public class DesignController : MonoBehaviour
     public Camera targetCamera;
     public BuildTile[] buildCandidates;
     private int _buildCandidateIndex = -1;
+   
     public int BuildCandidateIndex
     {
         get
