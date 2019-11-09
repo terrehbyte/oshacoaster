@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8744833600258999588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/_OSHACoaster/Audio/Oshacoaster_FMOD_Project/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637088908879357415
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-8584032029757925169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33,7 +51,7 @@ MonoBehaviour:
   Path: event:/SFX/PlaceObject
   guid: 73a5867ff21f554e8211f1f36bdf8542
   Banks:
-  - {fileID: -8584032029757925169}
+  - {fileID: -8744833600258999588}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -119,16 +137,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 1219423143005092127}
-  - {fileID: -8584032029757925169}
+  - {fileID: -8744833600258999588}
   EditorEvents:
   - {fileID: -5412055468068829300}
   - {fileID: 2148342069534891877}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -8584032029757925169}
+  - {fileID: -8744833600258999588}
   StringsBanks:
   - {fileID: 1219423143005092127}
-  stringsBankWriteTime: 637088900003088155
+  stringsBankWriteTime: 637088908879575488
   cacheVersion: 3
 --- !u!114 &1219423143005092127
 MonoBehaviour:
@@ -144,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/_OSHACoaster/Audio/Oshacoaster_FMOD_Project/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637088900003088155
+  lastModified: 637088908879575488
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -165,7 +183,7 @@ MonoBehaviour:
   Path: event:/Design Mode/Design_Music
   guid: ffcb95c20ba5624db20ce8d3f658747f
   Banks:
-  - {fileID: -8584032029757925169}
+  - {fileID: -8744833600258999588}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
