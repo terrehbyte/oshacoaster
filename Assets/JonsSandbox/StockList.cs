@@ -152,12 +152,9 @@ public class StockList : MonoBehaviour
         return false;
     }
 
-    public void GoToDeisgn()
+    public void ToggleDesign(bool _toggle)
     {
-        DesignController.instance.gameObject.SetActive(true);
+        DesignController.instance.gameObject.SetActive(_toggle);
     }
-    public void GoToStore()
-    {
-        DesignController.instance.gameObject.SetActive(false);
-    }
+
 }
