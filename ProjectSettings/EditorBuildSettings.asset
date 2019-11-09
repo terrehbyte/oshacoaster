@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SampleAssets/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/JonsSandbox/Sandbox2.unity
+    guid: b37980945390e9547af229be603ee91d
+  - enabled: 1
+    path: Assets/_OSHACoaster/Scenes/Dev/DesignTest.unity
+    guid: 61f4d261b210fdd4c9a3cd8845822a02
   m_configObjects: {}

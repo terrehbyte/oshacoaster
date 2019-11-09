@@ -5,6 +5,7 @@ using System.Linq;
 using Newtonsoft.Json;
 using DG.Tweening;
 using TMP = TMPro.TextMeshProUGUI;
+using UnityEngine.SceneManagement;
 
 
 //TODO: Redesign stock items to derive from a base class, with two (or more) subclasses for various types.
@@ -84,9 +85,10 @@ public class StockList : MonoBehaviour
         {
             //TODO do the thing to say well done you brought soemthign.
             GamePlay.inventory.Add(CurrentItem);
-
-            //DesignController.instance.add
-
+            BuildTile bt = new BuildTile();
+            bt.buildPrefab = Resources.Load(CurrentItem.prefab) as GameObject;
+            DesignController.instance.AddBuildTile(bt);
+            
             GamePlay.coin -= CurrentItem.purchasecost;
             wallet.text = $"Currante Balance:{GamePlay.coin.ToString()}";
         }
@@ -99,5 +101,9 @@ public class StockList : MonoBehaviour
             dialogBounceFade.Append(fadeDialog.DOFade(0, .3f));
             dialogBounceFade.PlayForward();  
         }
+    }
+    public void LoadScene(string _sceneName)
+    {
+        SceneManager.LoadScene(_sceneName);
     }
 }

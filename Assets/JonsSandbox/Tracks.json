@@ -20,7 +20,7 @@
   {
     "itemname": "Left Curve",
     "desc": "A simple left curve",
-    "prefab": "simpleleft",
+    "prefab": "curveleft",
     "purchasecost": 200,
     "maintcost": 14,
     "quality": 10,
@@ -29,7 +29,7 @@
   {
     "itemname": "Right Curve",
     "desc": "A simple right curve",
-    "prefab": "simpleright",
+    "prefab": "curveright",
     "purchasecost": 250,
     "maintcost": 16,
     "quality": 10,

@@ -11,6 +11,16 @@ public class DesignController : MonoBehaviour
     public Camera targetCamera;
     [SerializeField]
     private List<BuildTile> _buildCandidates;
+
+    public static DesignController instance;
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+            Destroy(gameObject);
+        if (instance == null)
+            instance = this;
+
+    }
     public ReadOnlyCollection<BuildTile> buildCandidates
     {
         get

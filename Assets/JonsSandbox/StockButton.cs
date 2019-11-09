@@ -15,8 +15,6 @@ public  class StockButton: MonoBehaviour, IPointerClickHandler
     public Image itemThumb;
 
 
-
-
     public void OnPointerClick(PointerEventData eventData)
     {
         //TODO: show the details panel for whichever kind of object this is.
