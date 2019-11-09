@@ -24,7 +24,7 @@ MonoBehaviour:
   EncryptionKey: 
   ImportType: 0
   TargetAssetPath: 
-  LoggingLevel: 2
+  LoggingLevel: 0
   SpeakerModeSettings:
   - Platform: 2
     Value: 3
@@ -46,7 +46,7 @@ MonoBehaviour:
     Value: 0
   OverlaySettings:
   - Platform: 1
-    Value: 1
+    Value: 0
   - Platform: 2
     Value: 0
   - Platform: 20
