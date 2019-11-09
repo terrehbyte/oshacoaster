@@ -5,7 +5,18 @@ using UnityEngine;
 [CreateAssetMenu]
 public class BuildTile : ScriptableObject
 {
+    public enum TileTypes
+    {
+        WALKABLE,
+        SCENARY,
+        ATTRCTION,
+        NORTH,
+        EAST,
+        SOUTH,
+        WEST
+    }
     public string myName;
+    public TileTypes TileType;
     public Mesh buildMesh;
     public GameObject buildPrefab;
 
