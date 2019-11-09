@@ -20,7 +20,7 @@ public class GridController : MonoBehaviour
     private GridCell[][] gridCells;
 
     [SerializeField]
-    private LineRenderer[] gridLines;
+    private LineRenderer gridLines;
 
     void Start()
     {
@@ -32,16 +32,14 @@ public class GridController : MonoBehaviour
 
         // TODO: LINES LINES LINES LINES
         // TODO: Y axis, which is coming never
-        int lineCountX = (gridDimensions.x + 1);
-        int lineCountZ = (gridDimensions.z + 1);
 
-        // Z
-        for (int i = 0; i < lineCountZ; ++i)
-        {
-            Vector3 start = new Vector3(i * tileSize, 0, 0);
-            Vector3 end = new Vector3(i * tileSize, 0, gridDimensions.z * tileSize);
-        }
-        // X
+        gridLines.positionCount = 4;
+        Vector3[] positions = new Vector3[4];
+        positions[0] = Vector3.zero;
+        positions[1] = new Vector3(gridDimensions.x * tileSize, 0, 0);
+        positions[2] = new Vector3(gridDimensions.x * tileSize, 0, gridDimensions.z * tileSize);
+        positions[3] = new Vector3(0, 0, gridDimensions.z * tileSize);
+        gridLines.SetPositions(positions);
     }
 
     public void WriteGridCell(Vector3Int tileLocation, Object tileObj)
@@ -65,7 +63,8 @@ public class GridController : MonoBehaviour
 
     public bool CheckWithinBounds(Vector3Int tileLocation)
     {
-        return tileLocation.x < gridDimensions.x && tileLocation.z < gridDimensions.z;
+        return tileLocation.x < gridDimensions.x && tileLocation.z < gridDimensions.z &&
+               tileLocation.x >= 0 && tileLocation.z >= 0;
     }
 
     public bool CheckBuildEligible(Vector3Int tileLocation)
