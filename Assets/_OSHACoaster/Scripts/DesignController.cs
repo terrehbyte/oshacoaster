@@ -14,6 +14,17 @@ public class DesignController : MonoBehaviour
     // Player camera used for design mode
     public Camera targetCamera;
 
+    [SerializeField]
+    private float placementAngle = 0.0f;
+    private float placementDelta = 90.0f;
+    private Quaternion placementRotation
+    {
+        get
+        {
+            return Quaternion.AngleAxis(placementAngle, Vector3.up);
+        }
+    }
+
     // List of all build candidates
     [SerializeField]
     private List<BuildTile> _buildCandidates;
@@ -39,7 +50,7 @@ public class DesignController : MonoBehaviour
     // Backing-field for BuildCandidateIndex
     // Authoritative field for considering which build candidate is selected
     private int _buildCandidateIndex = -1;
-    
+
     // Wrapper and utility for changing the current build index
     public int BuildCandidateIndex
     {
@@ -137,9 +148,15 @@ public class DesignController : MonoBehaviour
         previewTransform.position = buildLoc;
         tilePreviewTransform.position = buildLoc;
 
+        if(Input.GetButtonDown("Rotate"))
+        {
+            placementAngle += placementDelta;
+            previewTransform.rotation = placementRotation;
+        }
+
         if(Input.GetButtonDown("Fire1"))
         {
-            Instantiate(CurrentBuildCandidate.buildPrefab, buildLoc, Quaternion.identity);
+            Instantiate(CurrentBuildCandidate.buildPrefab, buildLoc, placementRotation);
         }
     }
 
