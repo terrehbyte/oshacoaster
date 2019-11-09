@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class BuildTile : ScriptableObject
 {
+    public string myName;
     public Mesh buildMesh;
     public GameObject buildPrefab;
 
@@ -14,5 +15,11 @@ public class BuildTile : ScriptableObject
         {
             buildMesh = buildPrefab.GetComponentInChildren<MeshFilter>().sharedMesh;
         }
+    }
+    public void ForceValidate()
+    {
+    
+            buildMesh = buildPrefab.GetComponentInChildren<MeshFilter>().sharedMesh;
+  
     }
 }

@@ -15,8 +15,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../Oshacoaster_FMOD_Project/Oshacoaster_FMOD_Project.fspro
-  sourceBankPath: ..\Oshacoaster_FMOD_Project\Build
+  sourceProjectPath: Assets/_OSHACoaster/Audio/Oshacoaster_FMOD_Project/Oshacoaster_FMOD_Project.fspro
+  sourceBankPath: Assets\_OSHACoaster\Audio\Oshacoaster_FMOD_Project\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
