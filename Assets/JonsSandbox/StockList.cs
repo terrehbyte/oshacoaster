@@ -59,6 +59,8 @@ public class StockList : MonoBehaviour
             tmpBtn.itemThumb.sprite = thumbs.FirstOrDefault<Sprite>(x => x.name == bi.prefab);
             tmpBtn.OriginalObject = bi;
         }
+
+        DesignController.instance.gameObject.SetActive(false);
     }
 
     public void ShowDetails(BaseItem Bi)
@@ -87,6 +89,7 @@ public class StockList : MonoBehaviour
             {
                 BuildTile bt = new BuildTile();
                 bt.buildPrefab = Resources.Load(CurrentItem.prefab) as GameObject;
+                bt.myName = CurrentItem.itemname; 
                 CurrentItem.qtyInStock = 1;
                 bt.ForceValidate();
                 GamePlay.inventory.Add(CurrentItem.itemname, CurrentItem);
@@ -147,5 +150,14 @@ public class StockList : MonoBehaviour
         if(GamePlay.inventory.ContainsKey(_name))
         return GamePlay.inventory[_name].qtyInStock > 0;
         return false;
+    }
+
+    public void GoToDeisgn()
+    {
+        DesignController.instance.gameObject.SetActive(true);
+    }
+    public void GoToStore()
+    {
+        DesignController.instance.gameObject.SetActive(false);
     }
 }
