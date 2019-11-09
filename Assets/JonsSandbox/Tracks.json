@@ -1,37 +1,73 @@
 [
   {
-    "itemname": "Straight track 1 Length",
-    "desc": "Straight piece 1 unit in length",
-    "prefab": "straight1",
-    "purchasecost": 100,
-    "maintcost": 10,
+    "itemname": "Rail_Incline_01",
+    "desc": "Steep turn",
+    "prefab": "Rail_Incline_01",
+    "purchasecost": 20,
+    "maintcost": 18,
     "quality": 10,
     "maxspeed": 5
   },
   {
-    "itemname": "Straight track 2 Length",
-    "desc": "Straight piece 2 units in length",
-    "prefab": "straight2",
-    "purchasecost": 150,
-    "maintcost": 12,
+    "itemname": "Rail_LeftTurn_01",
+    "desc": "Gentle Left Turn",
+    "prefab": "Rail_LeftTurn_01",
+    "purchasecost": 20,
+    "maintcost": 22,
     "quality": 10,
     "maxspeed": 5
   },
   {
-    "itemname": "Left Curve",
-    "desc": "A simple left curve",
-    "prefab": "curveleft",
-    "purchasecost": 200,
-    "maintcost": 14,
+    "itemname": "Rail_RightTurn_01",
+    "desc": "Gentle Right Turn",
+    "prefab": "Rail_RightTurn_01",
+    "purchasecost": 20,
+    "maintcost": 26,
     "quality": 10,
     "maxspeed": 5
   },
   {
-    "itemname": "Right Curve",
-    "desc": "A simple right curve",
-    "prefab": "curveright",
-    "purchasecost": 250,
-    "maintcost": 16,
+    "itemname": "Rail_Strait_01",
+    "desc": "Straight Rail",
+    "prefab": "Rail_Strait_01",
+    "purchasecost": 20,
+    "maintcost": 30,
+    "quality": 10,
+    "maxspeed": 5
+  },
+  {
+    "itemname": "Rail_Support_Incline_01",
+    "desc": "Rail Support for Steep Turns",
+    "prefab": "Rail_Support_Incline_01",
+    "purchasecost": 20,
+    "maintcost": 34,
+    "quality": 10,
+    "maxspeed": 5
+  },
+  {
+    "itemname": "Rail_Support_LeftTurn_01",
+    "desc": "Rail Support for Left Turns",
+    "prefab": "Rail_Support_LeftTurn_01",
+    "purchasecost": 20,
+    "maintcost": 38,
+    "quality": 10,
+    "maxspeed": 5
+  },
+  {
+    "itemname": "Rail_Support_RightTurn_01",
+    "desc": "Rail Support for Right Turns",
+    "prefab": "Rail_Support_RightTurn_01",
+    "purchasecost": 20,
+    "maintcost": 42,
+    "quality": 10,
+    "maxspeed": 5
+  },
+  {
+    "itemname": "Rail_Support_Strait_01",
+    "desc": "Rail Supports for Straight runs",
+    "prefab": "Rail_Support_Strait_01",
+    "purchasecost": 20,
+    "maintcost": 46,
     "quality": 10,
     "maxspeed": 5
   }
