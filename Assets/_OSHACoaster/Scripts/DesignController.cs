@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.Events;
 
 public class DesignController : MonoBehaviour
@@ -39,6 +40,11 @@ public class DesignController : MonoBehaviour
                 return null;
             }
         }
+        set
+        {
+            int index = System.Array.IndexOf(buildCandidates, value);
+            if (index != -1) { BuildCandidateIndex = index; }
+        }
     }
 
     public int tileSize = 2;
@@ -50,6 +56,9 @@ public class DesignController : MonoBehaviour
 
     public Transform tilePreviewTransform;
 
+    public GameObject buildCandidateButton;
+    public RectTransform scrollableItemsContent;
+
     public UnityEventBuildTile OnBuildCandidateChanged;
 
     void Start()
@@ -57,6 +66,20 @@ public class DesignController : MonoBehaviour
         buildPlane = new Plane(Vector3.up, 0);
         tilePreviewTransform.localScale = new Vector3(tileSize, 0.1f, tileSize);
         BuildCandidateIndex = 0;
+
+        for (int i = 0; i < buildCandidates.Length; ++i)
+        {
+            var candidate = buildCandidates[i];
+
+            var baby = Instantiate<GameObject>(buildCandidateButton, Vector3.zero, Quaternion.identity, scrollableItemsContent);
+            var switcher = baby.GetComponent<BuildTileSwitcher>();
+            switcher.assignedTile = candidate;
+            switcher.GetComponentInChildren<UnityEngine.UI.Text>().text = candidate.buildPrefab.name;
+            var switcherRect = switcher.GetComponent<RectTransform>();
+            switcherRect.offsetMin = new Vector2(i * 150, -100);
+            switcherRect.offsetMax = new Vector2((i+1) * 150, 0);
+            switcher.designController = this;
+        }
     }
 
     void Update()
