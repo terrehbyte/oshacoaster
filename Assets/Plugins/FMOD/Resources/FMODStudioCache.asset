@@ -1,5 +1,104 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8415742324288049646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../Oshacoaster_FMOD_Project/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637088997466808906
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-7108514719867089024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../Oshacoaster_FMOD_Project/Build/Desktop/Master.strings.bank
+  SubDir: 
+  lastModified: 637088997466828814
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 860
+  Exists: 1
+--- !u!114 &-6472286867377508335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/_OSHACoaster/Audio/Oshacoaster_FMOD_Project/Build/Desktop/Master.strings.bank
+  SubDir: 
+  lastModified: 637088877014617371
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 808
+  Exists: 0
+--- !u!114 &-6123644228183714646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/_OSHACoaster/Audio/Oshacoaster_FMOD_Project/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637088877014588515
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &-5832977929637272633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/PlaceObject
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/PlaceObject
+  guid: 73a5867ff21f554e8211f1f36bdf8542
+  Banks:
+  - {fileID: -8415742324288049646}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 854
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,10 +111,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  EditorBanks: []
-  EditorEvents: []
+  EditorBanks:
+  - {fileID: -7108514719867089024}
+  - {fileID: -8415742324288049646}
+  EditorEvents:
+  - {fileID: -5832977929637272633}
+  - {fileID: 7937615233424463280}
+  - {fileID: 1079072889144420399}
   EditorParameters: []
-  MasterBanks: []
-  StringsBanks: []
-  stringsBankWriteTime: 0
+  MasterBanks:
+  - {fileID: -8415742324288049646}
+  StringsBanks:
+  - {fileID: -7108514719867089024}
+  stringsBankWriteTime: 637088997466828814
   cacheVersion: 3
+--- !u!114 &1079072889144420399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/BoughtItem
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/BoughtItem
+  guid: fc1decec4f2f8d43aef72e52b0660f7b
+  Banks:
+  - {fileID: -8415742324288049646}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2447
+--- !u!114 &7937615233424463280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Design Mode/Design_Music
+  m_EditorClassIdentifier: 
+  Path: event:/Design Mode/Design_Music
+  guid: ffcb95c20ba5624db20ce8d3f658747f
+  Banks:
+  - {fileID: -8415742324288049646}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 54909
