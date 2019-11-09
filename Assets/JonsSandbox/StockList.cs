@@ -84,6 +84,10 @@ public class StockList : MonoBehaviour
         PreviewTemp=   Instantiate(Resources.Load(Bi.prefab) as GameObject, PreviewParent.transform);
         PreviewTemp.transform.localPosition = Vector3.zero;
         PreviewTemp.layer = SaveLayer;
+        for (int i = 0; i < PreviewTemp.transform.childCount;i++)
+        
+            PreviewTemp.transform.GetChild(i).gameObject.layer = SaveLayer;
+        
         PreviewTemp.AddComponent<BasicRotation>();
           }
     BaseItem CurrentItem;
