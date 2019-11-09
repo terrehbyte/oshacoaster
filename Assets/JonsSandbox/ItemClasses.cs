@@ -26,5 +26,14 @@ public class BaseItem {
     public int maintcost { get; set; }
     public int quality { get; set; }
     public int maxspeed { get; set; }
+    public int qtyInStock { get; set; }
 }
+
+public class InventoryItem
+{
+    public string itemName;
+    public int currentAvail;
+
+}
+
 

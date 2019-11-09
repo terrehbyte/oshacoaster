@@ -485,8 +485,7 @@ MonoBehaviour:
   _buildCandidates:
   - {fileID: 11400000, guid: 3a832b30e27566a449ca3ba5112338c0, type: 2}
   - {fileID: 11400000, guid: 72bd9f462c31e9444b2fe730c542710f, type: 2}
-  tileSize: 3
-  lastBuildHit: {x: 0, y: 0, z: 0}
+  _tileSize: 2
   previewTransform: {fileID: 1065769563}
   previewMeshFilter: {fileID: 1065769565}
   tilePreviewTransform: {fileID: 345830150}
@@ -624,7 +623,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 642086135}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1183,27 +1182,52 @@ PrefabInstance:
     - target: {fileID: 8900513809820387887, guid: 878972a31928c9d42a95e37058a8ef26,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8900513809820387887, guid: 878972a31928c9d42a95e37058a8ef26,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8900513809820387887, guid: 878972a31928c9d42a95e37058a8ef26,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8900513809820387887, guid: 878972a31928c9d42a95e37058a8ef26,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8900513809820387887, guid: 878972a31928c9d42a95e37058a8ef26,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900513809820387887, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: m_text
+      value: Trump mode
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900513811138015309, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900513811138015306, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: m_Name
+      value: btn_Trumpode
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900513811138015308, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TrumpMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900513809524580731, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 878972a31928c9d42a95e37058a8ef26, type: 3}
@@ -1721,3 +1745,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1820, y: 200}
   m_Pivot: {x: 0, y: 1}
+--- !u!1 &1856401348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8900513810449434569, guid: 878972a31928c9d42a95e37058a8ef26,
+    type: 3}
+  m_PrefabInstance: {fileID: 691581910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!222 &1856401351
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856401348}
+  m_CullTransparentMesh: 0

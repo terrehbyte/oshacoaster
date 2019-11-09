@@ -198,6 +198,8 @@ public class DesignController : MonoBehaviour
     // Adds a new BuildTile to the build menu + performs layout
     public void AddBuildTile(BuildTile newTile)
     {
+        if (_buildCandidates.Contains(newTile))
+            return;
         _buildCandidates.Add(newTile);
         LayoutBuildTile(newTile, _buildCandidates.Count);
     }

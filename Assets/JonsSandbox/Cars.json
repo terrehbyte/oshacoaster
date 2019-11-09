@@ -2,7 +2,7 @@
   {
     "itemname": "Red Rider 2",
     "desc": "The Red Rider twin a basic car",
-    "prefab": "rr2",
+    "prefab": "straight1",
     "purchasecost": 100,
     "maintcost": 10,
     "quality": 10,
@@ -12,7 +12,7 @@
   {
     "itemname": "Blue Lightning 2",
     "desc": "The Blue Lightning Twin a slightly better car capable of higher speeds",
-    "prefab": "bl2",
+    "prefab": "straight1",
     "purchasecost": 150,
     "maintcost": 12,
     "quality": 10,
@@ -22,7 +22,7 @@
   {
     "itemname": "Red Rider 4",
     "desc": "The 4 seater version of the Red Rider",
-    "prefab": "rr4",
+    "prefab": "straight1",
     "purchasecost": 200,
     "maintcost": 14,
     "quality": 10,
@@ -32,7 +32,7 @@
   {
     "itemname": "Blue Lightning 4",
     "desc": "the 4 seater version fo the blue lightning",
-    "prefab": "bl4",
+    "prefab": "straight1",
     "purchasecost": 250,
     "maintcost": 16,
     "quality": 10,

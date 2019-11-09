@@ -29,7 +29,7 @@ public class StockList : MonoBehaviour
     public CanvasGroup fadeDialog;
     public TMP fadeDialogTMP;
     public TMP wallet;
-
+ 
     // Start is called before the first frame update
     private void Awake()
     {
@@ -77,19 +77,25 @@ public class StockList : MonoBehaviour
         detailsPane.DOFade(0, .3f);
     }
 
-    public void BuyItem()
+    public void BuyItem(bool _cheatMode)
     {
         if (GamePlay.inventory == null)
-            GamePlay.inventory = new List<BaseItem>();
-        if (GamePlay.coin > CurrentItem.purchasecost)
+            GamePlay.inventory = new Dictionary<string, BaseItem>();
+        if (_cheatMode || GamePlay.coin > CurrentItem.purchasecost)
         {
-            //TODO do the thing to say well done you brought soemthign.
-            GamePlay.inventory.Add(CurrentItem);
-            BuildTile bt = new BuildTile();
-            bt.buildPrefab = Resources.Load(CurrentItem.prefab) as GameObject;
-            DesignController.instance.AddBuildTile(bt);
-            
-            GamePlay.coin -= CurrentItem.purchasecost;
+            if (!CanBuild(CurrentItem.itemname))
+            {
+                BuildTile bt = new BuildTile();
+                bt.buildPrefab = Resources.Load(CurrentItem.prefab) as GameObject;
+                CurrentItem.qtyInStock = 1;
+                GamePlay.inventory.Add(CurrentItem.itemname, CurrentItem);
+                DesignController.instance.AddBuildTile(bt);
+            }
+            else
+            {
+                incInventory(CurrentItem.itemname);
+            }
+            GamePlay.coin -= !_cheatMode? CurrentItem.purchasecost:0;
             wallet.text = $"Currante Balance:{GamePlay.coin.ToString()}";
         }
         else
@@ -99,11 +105,46 @@ public class StockList : MonoBehaviour
             dialogBounceFade.Append(fadeDialog.DOFade(1, .3f));
             dialogBounceFade.AppendInterval(1);
             dialogBounceFade.Append(fadeDialog.DOFade(0, .3f));
-            dialogBounceFade.PlayForward();  
+            dialogBounceFade.PlayForward();
         }
     }
-    public void LoadScene(string _sceneName)
+    public void TrumpMode(string _sceneName)
     {
-        SceneManager.LoadScene(_sceneName);
+        //Will purchase ALL STOCK ITEMS x 10 ??
+        foreach (StockButton sb in contentHolder.GetComponentsInChildren<StockButton>())
+        {
+            CurrentItem = sb.OriginalObject;
+            for (int i = 0; i < 10; i++)
+            {
+                Debug.Log($"Buying {CurrentItem.itemname}");
+                BuyItem(true);
+
+            }
+        }
+    }
+
+    public void incInventory(string _name)
+    {
+        if (GamePlay.inventory.ContainsKey(_name))
+            GamePlay.inventory[_name].qtyInStock++;
+       
+    }
+    public void decInvenctory(string _name)
+    {
+        GamePlay.inventory[_name].qtyInStock -= GamePlay.inventory[_name].qtyInStock > 0 ? 1 : 0;
+    }
+    public int CheckInventory(BuildTile _item)
+    {
+        return GamePlay.inventory[_item.name].qtyInStock;
+    }
+    public bool CanBuild(BuildTile _item)
+    {
+        return GamePlay.inventory[_item.name].qtyInStock > 0;
+    }
+    public bool CanBuild(string  _name)
+    {
+        if(GamePlay.inventory.ContainsKey(_name))
+        return GamePlay.inventory[_name].qtyInStock > 0;
+        return false;
     }
 }
