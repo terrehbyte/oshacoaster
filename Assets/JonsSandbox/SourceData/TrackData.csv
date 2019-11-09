@@ -1,0 +1,5 @@
+﻿itemname,desc,prefab,purchasecost,maintcost,quality,maxspeed
+Straight track 1 Length,Straight piece 1 unit in length,straight1,100,10,10,5
+Straight track 2 Length,Straight piece 2 units in length,straight2,150,12,10,5
+Left Curve,A simple left curve,simpleleft,200,14,10,5
+Right Curve,A simple right curve,simpleright,250,16,10,5

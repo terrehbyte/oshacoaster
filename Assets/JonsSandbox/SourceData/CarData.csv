@@ -1,0 +1,5 @@
+﻿itemname,desc,prefab,purchasecost,maintcost,quality,maxspeed,revenue
+Red Rider 2,The Red Rider twin a basic car,rr2,100,10,10,2,5
+Blue Lightning 2,The Blue Lightning Twin a slightly better car capable of higher speeds,bl2,150,12,10,2,5
+Red Rider 4,The 4 seater version of the Red Rider,rr4,200,14,10,4,8
+Blue Lightning 4,the 4 seater version fo the blue lightning,bl4,250,16,10,4,8

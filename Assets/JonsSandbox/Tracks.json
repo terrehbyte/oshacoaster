@@ -1,0 +1,38 @@
+[
+  {
+    "itemname": "Straight track 1 Length",
+    "desc": "Straight piece 1 unit in length",
+    "prefab": "straight1",
+    "purchasecost": 100,
+    "maintcost": 10,
+    "quality": 10,
+    "maxspeed": 5
+  },
+  {
+    "itemname": "Straight track 2 Length",
+    "desc": "Straight piece 2 units in length",
+    "prefab": "straight2",
+    "purchasecost": 150,
+    "maintcost": 12,
+    "quality": 10,
+    "maxspeed": 5
+  },
+  {
+    "itemname": "Left Curve",
+    "desc": "A simple left curve",
+    "prefab": "simpleleft",
+    "purchasecost": 200,
+    "maintcost": 14,
+    "quality": 10,
+    "maxspeed": 5
+  },
+  {
+    "itemname": "Right Curve",
+    "desc": "A simple right curve",
+    "prefab": "simpleright",
+    "purchasecost": 250,
+    "maintcost": 16,
+    "quality": 10,
+    "maxspeed": 5
+  }
+]
