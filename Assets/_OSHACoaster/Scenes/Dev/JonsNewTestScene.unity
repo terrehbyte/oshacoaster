@@ -969,5 +969,51 @@ PrefabInstance:
       propertyPath: m_IsOn
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8900513809524580729, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: m_TagString
+      value: Buy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900513809524580731, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900513809524580731, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 6831545211484632857, guid: 4074c82a96620964fba90ba5b0f07f37,
+        type: 3}
+    - target: {fileID: 8900513809524580731, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: playSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900513809524580731, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900513809524580731, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859699222876710093, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836294742181094037, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836294742181094037, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: PlayEvent
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 878972a31928c9d42a95e37058a8ef26, type: 3}

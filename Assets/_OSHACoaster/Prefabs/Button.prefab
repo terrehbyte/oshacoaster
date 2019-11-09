@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 2508847498289001718}
   - component: {fileID: 2508847498289001719}
   - component: {fileID: 4137858039886559678}
+  - component: {fileID: 6831545211484632857}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -221,3 +222,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedTile: {fileID: 0}
   designController: {fileID: 0}
+--- !u!114 &6831545211484632857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508847498289001717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8f2e5a30d0b4646a9e6cd29cd8bc0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buyButton: {fileID: 0}

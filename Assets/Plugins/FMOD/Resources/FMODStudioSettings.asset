@@ -16,7 +16,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: ../Oshacoaster_FMOD_Project/Oshacoaster_FMOD_Project.fspro
-  sourceBankPath: Assets\_OSHACoaster\Audio\Oshacoaster_FMOD_Project\Build\Desktop
+  sourceBankPath: Assets\Oshacoaster_FMOD_Project\Desktop
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
