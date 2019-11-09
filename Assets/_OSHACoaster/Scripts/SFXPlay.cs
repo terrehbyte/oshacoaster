@@ -7,29 +7,35 @@ public class SFXPlay : MonoBehaviour
 {
     FMOD.Studio.EventInstance PlayMoneySound;
     FMOD.Studio.PLAYBACK_STATE playbackState;
-    public Button buyButton;
+    //public Button buyButton;
 
-    void Awake()
-    {
-        PlayMoneySound = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/BoughtItem");
+    //void Awake()
+    //{
+    //    PlayMoneySound = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/BoughtItem");
 
-    }
+    //}
 
-    void Start()
+    void start()
     {
         PlayMoneySound = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/BoughtItem");
         //Button btn = buyButton.GetComponent<Button>();
         //btn.onClick.AddListener(taskToClick);
         //btn.onClick.AddListener(playSound);
         //PlayMoneySound.start();
+
     }
 
     public void playSound()
     {
         PlayMoneySound.getPlaybackState(out playbackState);
-        Debug.Log(playbackState);
+        Debug.Log(PlayMoneySound);
+        if (playbackState != FMOD.Studio.PLAYBACK_STATE.STOPPED)
+        {
+            PlayMoneySound.start();
+
+        }
         //Debug.Log(playbackState == FMOD.Studio.PLAYBACK_STATE.STOPPED);
-        PlayMoneySound.start();
+        
     }
 
     //void playSound()
