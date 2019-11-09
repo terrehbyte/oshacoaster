@@ -88,6 +88,7 @@ public class StockList : MonoBehaviour
                 BuildTile bt = new BuildTile();
                 bt.buildPrefab = Resources.Load(CurrentItem.prefab) as GameObject;
                 CurrentItem.qtyInStock = 1;
+                bt.ForceValidate();
                 GamePlay.inventory.Add(CurrentItem.itemname, CurrentItem);
                 DesignController.instance.AddBuildTile(bt);
             }
@@ -108,7 +109,7 @@ public class StockList : MonoBehaviour
             dialogBounceFade.PlayForward();
         }
     }
-    public void TrumpMode(string _sceneName)
+    public void TrumpMode()
     {
         //Will purchase ALL STOCK ITEMS x 10 ??
         foreach (StockButton sb in contentHolder.GetComponentsInChildren<StockButton>())

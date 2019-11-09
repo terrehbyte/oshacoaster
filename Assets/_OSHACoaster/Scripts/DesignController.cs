@@ -183,7 +183,7 @@ public class DesignController : MonoBehaviour
         
         var switcher = baby.GetComponent<BuildTileSwitcher>();
         switcher.assignedTile = candidate;
-        switcher.GetComponentInChildren<UnityEngine.UI.Text>().text = candidate.buildPrefab.name;
+        switcher.GetComponentInChildren<UnityEngine.UI.Text>().text = candidate.myName;
         switcher.designController = this;
         
         var switcherRect = switcher.GetComponent<RectTransform>();
