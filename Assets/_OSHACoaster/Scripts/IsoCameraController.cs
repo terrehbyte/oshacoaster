@@ -34,7 +34,7 @@ public class IsoCameraController : MonoBehaviour
         // TODO: save and restore mouse position
         if(Input.GetButtonDown("Fire2"))
         {
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             //savedCursorPosition = Input.mousePosition;
         }
