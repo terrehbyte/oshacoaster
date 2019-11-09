@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
-  HasSourceProject: 1
-  HasPlatforms: 1
+  HasSourceProject: 0
+  HasPlatforms: 0
   sourceProjectPath: ../Oshacoaster_FMOD_Project/Oshacoaster_FMOD_Project.fspro
-  sourceBankPath: ..\Oshacoaster_FMOD_Project\Build
+  sourceBankPath: ../Oshacoaster_FMOD_Project/Build/Desktop
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
