@@ -30,6 +30,8 @@ public class StockList : MonoBehaviour
     public TMP fadeDialogTMP;
     public TMP wallet;
 
+    public GameObject PreviewParent;
+    public GameObject PreviewTemp;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -75,7 +77,15 @@ public class StockList : MonoBehaviour
         mainDetails[0].text = Bi.itemname;
         mainDetails[1].text = $"{Bi.desc}\nPurchase price: {Bi.purchasecost.ToString()}\nRunning costs: {Bi.maintcost.ToString()}";
         CurrentItem = Bi;
-    }
+        int SaveLayer = PreviewTemp.layer;
+
+        Destroy(PreviewTemp);
+
+        PreviewTemp=   Instantiate(Resources.Load(Bi.prefab) as GameObject, PreviewParent.transform);
+        PreviewTemp.transform.localPosition = Vector3.zero;
+        PreviewTemp.layer = SaveLayer;
+        PreviewTemp.AddComponent<BasicRotation>();
+          }
     BaseItem CurrentItem;
     public void CloseDetails()
     {
