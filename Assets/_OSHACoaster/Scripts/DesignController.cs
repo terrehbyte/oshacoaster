@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.Events;
+using System.Collections.ObjectModel;
 
 public class DesignController : MonoBehaviour
 {
     public Transform gridTransform;
     public Camera targetCamera;
-    public BuildTile[] buildCandidates;
+    [SerializeField]
+    private List<BuildTile> _buildCandidates;
+    public ReadOnlyCollection<BuildTile> buildCandidates
+    {
+        get
+        {
+            return _buildCandidates.AsReadOnly();
+        }
+    }
     private int _buildCandidateIndex = -1;
     public int BuildCandidateIndex
     {
@@ -22,8 +31,8 @@ public class DesignController : MonoBehaviour
             _buildCandidateIndex = value;
             if(oldIndex != value)
             {
-                OnBuildCandidateChangedInternal(buildCandidates[value]);
-                OnBuildCandidateChanged.Invoke(buildCandidates[value]);
+                OnBuildCandidateChangedInternal(_buildCandidates[value]);
+                OnBuildCandidateChanged.Invoke(_buildCandidates[value]);
             }
         }
     }
@@ -33,7 +42,7 @@ public class DesignController : MonoBehaviour
         {
             try
             {
-                return buildCandidates[BuildCandidateIndex];
+                return _buildCandidates[BuildCandidateIndex];
             }
             catch (System.IndexOutOfRangeException)
             {
@@ -42,7 +51,7 @@ public class DesignController : MonoBehaviour
         }
         set
         {
-            int index = System.Array.IndexOf(buildCandidates, value);
+            int index = _buildCandidates.IndexOf(value);
             if (index != -1) { BuildCandidateIndex = index; }
         }
     }
@@ -67,18 +76,9 @@ public class DesignController : MonoBehaviour
         tilePreviewTransform.localScale = new Vector3(tileSize, 0.1f, tileSize);
         BuildCandidateIndex = 0;
 
-        for (int i = 0; i < buildCandidates.Length; ++i)
+        for (int i = 0; i < _buildCandidates.Count; ++i)
         {
-            var candidate = buildCandidates[i];
-
-            var baby = Instantiate<GameObject>(buildCandidateButton, Vector3.zero, Quaternion.identity, scrollableItemsContent);
-            var switcher = baby.GetComponent<BuildTileSwitcher>();
-            switcher.assignedTile = candidate;
-            switcher.GetComponentInChildren<UnityEngine.UI.Text>().text = candidate.buildPrefab.name;
-            var switcherRect = switcher.GetComponent<RectTransform>();
-            switcherRect.offsetMin = new Vector2(i * 150, -100);
-            switcherRect.offsetMax = new Vector2((i+1) * 150, 0);
-            switcher.designController = this;
+            LayoutBuildTile(_buildCandidates[i], i);
         }
     }
 
@@ -136,6 +136,26 @@ public class DesignController : MonoBehaviour
         Vector3 offset = new Vector3((float)tileSize / 2.0f, 0.0f, (float)tileSize / 2.0f);
 
         return worldLocation + offset;
+    }
+
+    private void LayoutBuildTile(BuildTile tile, int tileNumber)
+    {
+        var candidate = tile;
+
+        var baby = Instantiate<GameObject>(buildCandidateButton, Vector3.zero, Quaternion.identity, scrollableItemsContent);
+        var switcher = baby.GetComponent<BuildTileSwitcher>();
+        switcher.assignedTile = candidate;
+        switcher.GetComponentInChildren<UnityEngine.UI.Text>().text = candidate.buildPrefab.name;
+        var switcherRect = switcher.GetComponent<RectTransform>();
+        switcherRect.offsetMin = new Vector2(tileNumber * 150, -100);
+        switcherRect.offsetMax = new Vector2((++tileNumber) * 150, 0);
+        switcher.designController = this;
+    }
+
+    public void AddBuildTile(BuildTile newTile)
+    {
+        _buildCandidates.Add(newTile);
+        LayoutBuildTile(newTile, _buildCandidates.Count);
     }
 }
 
