@@ -16,6 +16,7 @@ using System.IO;
 
 public class StockList : MonoBehaviour
 {
+    public GameObject StoreFrontHierarchy;
     public static StockList instance;
     public Sprite[] thumbs;
 
@@ -292,6 +293,7 @@ public class StockList : MonoBehaviour
     public void ToggleDesign(bool _toggle)
     {
         DesignController.instance.gameObject.SetActive(_toggle);
+        StoreFrontHierarchy.SetActive(!_toggle);
     }
 
 }
