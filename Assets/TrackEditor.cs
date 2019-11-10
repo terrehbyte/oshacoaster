@@ -22,11 +22,7 @@ public class TrackEditor : MonoBehaviour
 
 
     }
-    public void GrabThumbNail()
-    {
-    //   Texture2D thumbNail=ThumbnailGrabber.
 
-    }
     public void Displayer(string str)
     {
         str = str.ToUpper();

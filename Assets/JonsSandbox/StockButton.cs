@@ -12,7 +12,7 @@ public  class StockButton: MonoBehaviour, IPointerClickHandler
     public string myType;
 
     public TMP itemNameLbl;
-    public Image itemThumb;
+    public RawImage itemThumb;
 
 
     public void OnPointerClick(PointerEventData eventData)
