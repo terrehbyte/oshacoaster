@@ -172,23 +172,41 @@ public class DesignController : MonoBehaviour
             }
             
             var config = obj.GetComponent<RailConfiguration>();
+
             if(config != null)
             {
                 var potentialConnections = grid.GetConnectingPositions(tileLoc);
-                
+
                 foreach(var con in potentialConnections)
                 {
-                    if (!grid.CheckWithinBounds(con) || !grid.CheckOccupied(con)) { continue; }
-                    var cell = grid.GetCellData(con);
-                    var prevConfig = cell.cellObject.GetComponent<RailConfiguration>();
-                    if(prevConfig != null)
-                    {
-                        if(prevConfig.nextRailTilePosition == null)
-                            prevConfig.nextRailTilePosition = config;
-                        else
-                            config.nextRailTilePosition = prevConfig;
-                    }
+                    // for each potential connection, see if a connection is
+                    // able to be established
+                    //
+                    // to establish a connection, your outbound direction
+                    // must be able to connect with their corresponding
+                    // direction
+                    if (grid.GetCellData(con).cellObject == null) { continue; }
+                    var nearbyRail = grid.GetCellData(con).cellObject.GetComponent<RailConfiguration>();
+                    if(nearbyRail == null) { continue; }
+
+                    var nearbyRelativeCon = grid.GetReciprocalConnection(tileLoc, con);
+                    if(!nearbyRail.connections.ContainsKey(nearbyRelativeCon)) { continue; }
+                    nearbyRail.connections[nearbyRelativeCon] = config;
+                    config.connections[GridController.GetReciprocalConnection(nearbyRelativeCon)] = nearbyRail;
+                    //config.connections[GridController.GetReciprocalConnection(nearbyRelativeCon)] = nearbyRail;
                 }
+
+                return;
+            }
+            var railcar = obj.GetComponent<RailCarController>();
+            if(railcar != null)
+            {
+                if (grid.GetCellData(tileLoc).cellObject == null) { return; }
+
+                var railConfig = grid.GetCellData(tileLoc).cellObject.GetComponent<RailConfiguration>();
+                if(railConfig == null) return;
+
+                // IDK NEVERMIND
             }
         }
     }
