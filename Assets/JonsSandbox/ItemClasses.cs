@@ -1,11 +1,4 @@
-﻿public enum AssetTypes
-{
-    WALKABLE,
-    SCENERY,
-    ATTRACTION,
-    TRACK
-}
-
+﻿
 public class CarRoot
 {
     public Car[] Property1 { get; set; }
@@ -36,7 +29,7 @@ public class BaseItem {
     public int qtyInStock { get; set; }
 
     public string connections { get; set; }
-    public AssetTypes AssetType = AssetTypes.SCENERY;
+    public BuildTile.TileTypes AssetType = BuildTile.TileTypes.SCENARY;
 
 }
 

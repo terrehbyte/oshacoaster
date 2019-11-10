@@ -49,9 +49,10 @@ public class StockList : MonoBehaviour
         tmp.purchasecost = int.Parse(createFields[2].text);
         tmp.maintcost = int.Parse(createFields[3].text);
         tmp.prefab = createFields[4].text;
+        tmp.AssetType = (BuildTile.TileTypes)Enum.Parse(typeof(BuildTile.TileTypes), createFields[5].text);
+
         createNewList.Add(tmp);
         
-
         String TracksToSave = JsonConvert.SerializeObject(createNewList.ToArray());
         Debug.Log(TracksToSave);
         string fPath = UnityEditor.AssetDatabase.GetAssetPath(trackInventory);
@@ -118,7 +119,6 @@ public class StockList : MonoBehaviour
         foreach (BaseItem bi in trackRoot.Property1)
         {
             tmp = Instantiate(shopItemButton, contentHolder);
-            bi.AssetType = AssetTypes.TRACK;
             tmpBtn = tmp.GetComponent<StockButton>();
             tmpBtn.itemNameLbl.text = bi.itemname;
             Texture2D tmpThumb = Resources.Load(bi.prefab + "_thumb") as Texture2D;
@@ -198,7 +198,7 @@ public class StockList : MonoBehaviour
                 BuildTile bt = new BuildTile();
                 bt.buildPrefab = Resources.Load(CurrentItem.prefab) as GameObject;
                 bt.myName = CurrentItem.itemname;
-                bt.tileType = CurrentItem.AssetType == AssetTypes.TRACK ? BuildTile.TileTypes.RAIL : BuildTile.TileTypes.SCENARY;
+                bt.tileType = CurrentItem.AssetType;// == AssetTypes.TRACK ? BuildTile.TileTypes.RAIL : BuildTile.TileTypes.SCENARY;
                 CurrentItem.qtyInStock = 1;
                BuildTile. TileConnections[] baseConnections = new BuildTile. TileConnections[CurrentItem.connections.Length];
                 //Decode connections.
