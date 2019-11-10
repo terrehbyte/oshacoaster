@@ -166,6 +166,7 @@ public class DesignController : MonoBehaviour
         if(Input.GetButtonDown("Fire1") && buildDoable)
         {
             var obj = Instantiate(CurrentBuildCandidate.buildPrefab, buildLoc, placementRotation);
+            obj.AddComponent<UnityEngine.AI.NavMeshObstacle>();
             if (CurrentBuildCandidate.tileType != BuildTile.TileTypes.NONE)
             {
                 grid.WriteGridCell(tileLoc, placementRotations, obj, CurrentBuildCandidate);
