@@ -28,15 +28,19 @@ public class SFXPlay : MonoBehaviour
     public void playSound()
     {
         PlayMoneySound.getPlaybackState(out playbackState);
+        //PlayMoneySound.start();
         Debug.Log(PlayMoneySound);
-        if (playbackState != FMOD.Studio.PLAYBACK_STATE.STOPPED)
-        {
-            PlayMoneySound.start();
+        Debug.Log(playbackState);
+        //Debug.Log(PlayMoneySound);
+        //if (playbackState != FMOD.Studio.PLAYBACK_STATE.STOPPED)
+        //{
+        //    PlayMoneySound.start();
 
-        }
+        //}
         //Debug.Log(playbackState == FMOD.Studio.PLAYBACK_STATE.STOPPED);
         
     }
+
 
     //void playSound()
     //{
@@ -44,7 +48,7 @@ public class SFXPlay : MonoBehaviour
     //    Debug.Log(playbackState == FMOD.Studio.PLAYBACK_STATE.STOPPED);
     //    PlayMoneySound.start();
 
-        
+
     //    //layMoneySound.start();
     //    //Debug.Log("Clicked");
     //}
