@@ -107,7 +107,7 @@ public class StockList : MonoBehaviour
                 BuildTile bt = new BuildTile();
                 bt.buildPrefab = Resources.Load(CurrentItem.prefab) as GameObject;
                 bt.myName = CurrentItem.itemname;
-                bt.TileType = CurrentItem.AssetType == AssetTypes.TRACK ? BuildTile.TileTypes.EAST : BuildTile.TileTypes.SCENARY;
+                bt.tileType = CurrentItem.AssetType == AssetTypes.TRACK ? BuildTile.TileTypes.RAIL : BuildTile.TileTypes.SCENARY;
                 CurrentItem.qtyInStock = 1;
                 bt.ForceValidate();
                 GamePlay.inventory.Add(CurrentItem.itemname, CurrentItem);

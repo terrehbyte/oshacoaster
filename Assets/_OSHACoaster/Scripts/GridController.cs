@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.ObjectModel;
+using System;
+using System.Linq;
 
 public class GridController : MonoBehaviour
 {
@@ -17,18 +19,15 @@ public class GridController : MonoBehaviour
     public Vector3Int gridDimensions;
 
     // HACK: I don't care about the Y axis, so always use XZ to access this
-    private GridCell[][] gridCells;
+    [SerializeField]
+    private GridCell[] gridCells;
 
     [SerializeField]
     private LineRenderer gridLines;
 
     void Start()
     {
-        gridCells = new GridCell[gridDimensions.x][];
-        for (int i = 0; i < gridDimensions.x; ++i)
-        {
-            gridCells[i] = new GridCell[gridDimensions.z];
-        }
+        gridCells = new GridCell[gridDimensions.x * gridDimensions.z];
 
         // TODO: LINES LINES LINES LINES
         // TODO: Y axis, which is coming never
@@ -42,18 +41,33 @@ public class GridController : MonoBehaviour
         gridLines.SetPositions(positions);
     }
 
-    public void WriteGridCell(Vector3Int tileLocation, Object tileObj)
+    public int GetCellIndexFromTileLocation(Vector3Int tileLocation)
     {
-        var cellData = gridCells[tileLocation.x][tileLocation.z];
-        cellData.cellObject = tileObj;
-        gridCells[tileLocation.x][tileLocation.z] = cellData;
+        return tileLocation.x * gridDimensions.x + tileLocation.z;
+    }
+
+    public Vector3Int GetTileLocationFromCellIndex(int tileIndex)
+    {
+        return new Vector3Int(tileIndex / gridDimensions.x, 0, tileIndex % gridDimensions.z);
+    }
+
+    public void WriteGridCell(Vector3Int tileLocation, int rotations, GameObject obj, BuildTile tileObj)
+    {
+        // TODO: magic only FOUR orientations!!!
+        Debug.Assert(rotations >= 0 && rotations <= 4);
+
+        var cellData = gridCells[GetCellIndexFromTileLocation(tileLocation)];
+        cellData.tileType = tileObj;
+        cellData.cellObject = obj;
+        cellData.rotations = rotations;
+        gridCells[GetCellIndexFromTileLocation(tileLocation)] = cellData;
     }
 
     public bool CheckOccupied(Vector3Int tileLocation)
     {
         try
         {
-            return gridCells[tileLocation.x][tileLocation.z].isOccupied;
+            return gridCells[GetCellIndexFromTileLocation(tileLocation)].isOccupied;
         }
         catch (System.IndexOutOfRangeException)
         {
@@ -101,11 +115,84 @@ public class GridController : MonoBehaviour
         return worldLocation + offset;
     }
 
+    public Vector3 GetConnectionPoint(Vector3Int worldTileLocation, BuildTile.TileConnections conn)
+    {
+        var worldPos = GetInstantiationLocation(worldTileLocation);
+
+        Vector3 offset = Vector3.zero;
+        switch (conn)
+        {
+            case BuildTile.TileConnections.NORTH:
+                offset = new Vector3(0, 0, 1);
+                break;
+            case BuildTile.TileConnections.EAST:
+                offset = new Vector3(1, 0, 0);
+                break;
+            case BuildTile.TileConnections.SOUTH:
+                offset = new Vector3(0, 0, -1);
+                break;
+            case BuildTile.TileConnections.WEST:
+                offset = new Vector3(-1, 0, 0);
+                break;
+        }
+
+        return worldPos + offset * ((float)tileSize / 2.0f);
+    }
+
+    public Vector3 GetConnectionOffset(BuildTile.TileConnections conn)
+    {
+        Vector3 offset = Vector3.zero;
+        switch (conn)
+        {
+            case BuildTile.TileConnections.NORTH:
+                offset = new Vector3(0, 0, 1);
+                break;
+            case BuildTile.TileConnections.EAST:
+                offset = new Vector3(1, 0, 0);
+                break;
+            case BuildTile.TileConnections.SOUTH:
+                offset = new Vector3(0, 0, -1);
+                break;
+            case BuildTile.TileConnections.WEST:
+                offset = new Vector3(-1, 0, 0);
+                break;
+        }
+
+        return offset * ((float)tileSize / 2.0f);
+    }
+
+    public GridCell GetCellData(Vector3Int worldTileLocation)
+    {
+        return gridCells[GetCellIndexFromTileLocation(worldTileLocation)];
+    }
+
+    void OnDrawGizmos()
+    {
+        if (gridCells == null) { return; }
+
+        Gizmos.color = Color.white;
+        for (int i = 0; i < gridCells.Length; ++i)
+        {
+            var cell = gridCells[i];
+            if (cell.isOccupied && cell.tileType.tileType == BuildTile.TileTypes.RAIL)
+            {
+                var gizCon = cell.connections;
+
+                foreach (var con in gizCon)
+                {
+                    Gizmos.DrawSphere(GetInstantiationLocation(GetTileLocationFromCellIndex(i)) + GetConnectionOffset(con)  , 0.25f);
+                }
+            }
+        }
+    }
 }
 
+[System.Serializable]
 public struct GridCell
 {
-    public Object cellObject;
+    public BuildTile tileType;
+    public GameObject cellObject;
+    public int rotations;
 
     public bool isOccupied
     {
@@ -113,5 +200,54 @@ public struct GridCell
         {
             return cellObject != null;
         }
+    }
+
+    public BuildTile.TileConnections[] connections
+    {
+        get
+        {
+            var finalConnections = new BuildTile.TileConnections[connectionCount];
+            GetConnections(finalConnections);
+            return finalConnections;
+        }
+    }
+
+    public int GetConnections(BuildTile.TileConnections[] dest)
+    {
+        var connections = Mathf.Min(connectionCount, dest.Length);
+        var baseConnections = tileType.baseConnections;
+        for (int i = 0; i < connections; ++i)
+        {
+            dest[i] = (BuildTile.TileConnections)(((int)baseConnections[i] + rotations) % 4);
+        }
+
+        return connections;
+    }
+
+    public int connectionCount
+    {
+        get
+        {
+            return tileType.baseConnections.Length;
+        }
+    }
+
+    // Returns the direction that traffic can flow in
+    // Returns -1 if no connection can be made
+    public int CanConnect(BuildTile.TileConnections[] sourceTypes)
+    {
+        // build acceptable connections
+        var rotatedConnections = connections;
+        for (int i = 0; i < rotatedConnections.Length; ++i)
+        {
+            rotatedConnections[i] = (BuildTile.TileConnections)((int)(rotatedConnections[i] + 2) % 4);
+        }
+
+        foreach (var conA in sourceTypes)
+        {
+            //Array.IndexOf
+        }
+
+        return -1;
     }
 }
