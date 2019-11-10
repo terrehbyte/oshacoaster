@@ -75,10 +75,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentRail: {fileID: 0}
-  railSpeed: 0.5
+  railSpeed: 10
   railProgress: 0
+  prevTilePosition: {x: 0, y: 0, z: 0}
   tilePosition: {x: 0, y: 0, z: 0}
   rbody: {fileID: 5011531836463662564}
+  heightOffset: 0.5
 --- !u!1001 &5011531835833877766
 PrefabInstance:
   m_ObjectHideFlags: 0

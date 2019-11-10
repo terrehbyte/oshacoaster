@@ -67,3 +67,6 @@ fmod_editor.log
 Assets/FMODStudioCache.asset
 /[Aa]ssets/StreamingAssets/*.bank.meta
 /[Aa]ssets/StreamingAssets/*.bank
+
+# Office
+*~$*.*
