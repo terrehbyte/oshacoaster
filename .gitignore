@@ -68,6 +68,18 @@ Assets/FMODStudioCache.asset
 /[Aa]ssets/StreamingAssets/*.bank.meta
 /[Aa]ssets/StreamingAssets/*.bank
 
+Assets/Plugins/FMOD/
+Assets/Plugins/FMOD.meta
+
+Assets/Oshacoaster_FMOD_Project
+Assets/Oshacoaster_FMOD_Project.meta
+
+Assets/_OSHACoaster/Audio/Oshacoaster_FMOD_Project/
+Assets/_OSHACoaster/Audio/Oshacoaster_FMOD_Project.meta
+
+# Remove any conflicted meta files
+*.meta~*
+
 # Office
 *~$*.*
 
