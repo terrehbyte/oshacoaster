@@ -8,10 +8,13 @@ public class ScoreTally : MonoBehaviour
 {
     public float desiredScore = 9999;
     public float tallyTime = 10;
+    public TMPro.TextMeshProUGUI myTmp;
     float temp;
+    bool SlowedDown = false;
     // Start is called before the first frame update
     void Start()
     {
+        myTmp = GetComponent<TMPro.TextMeshProUGUI>();
         temp = 0;
     }
 
@@ -20,9 +23,13 @@ public class ScoreTally : MonoBehaviour
     {
         temp = Mathf.MoveTowards(temp, 1.0f, Time.deltaTime / tallyTime);
         int scoreCalc = (int)Mathf.Lerp(0, desiredScore, temp);
+
         string displayedScore = string.Format("{0:D4}", scoreCalc);
-        GetComponent<TMPro.TextMeshProUGUI>().text = displayedScore.ToString();
-        if (scoreCalc > desiredScore / 1.1f)
-            tallyTime += 0.75f;
+        myTmp.text = displayedScore.ToString();
+        if (!SlowedDown && scoreCalc > desiredScore *.95f)
+        {
+            SlowedDown = true;
+            tallyTime -= 5f;
+        }
     }
 }
