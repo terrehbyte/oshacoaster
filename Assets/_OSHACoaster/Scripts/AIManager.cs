@@ -11,8 +11,8 @@ public class AIManager : MonoBehaviour
     public bool Running = true;
     public float IdleVelocity;
     public int RefreshPopulationEverySteps;
-    List<GameObject> Targets = new List<GameObject>();
-    List<GameObject> Meeples = new List<GameObject>();
+    public List<GameObject> Targets = new List<GameObject>();
+    public List<GameObject> Meeples = new List<GameObject>();
     int TargetCount;
     int MeepleCount;
     public static AIManager instance;
