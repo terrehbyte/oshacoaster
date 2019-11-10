@@ -59,13 +59,13 @@ public class AIManager : MonoBehaviour
         yield return null;
         while (Running)
         {
+            RefreshAvailableMeeeples();
+            RefreshAvailableTargets();
             for (int i = 0; i < MeepleCount; i++)
             {
                 if (stepCounter++ > RefreshPopulationEverySteps)
                 {
                     stepCounter = 0;
-                    RefreshAvailableMeeeples();
-                    RefreshAvailableTargets();
 
                 }
                 if (Meeples[i].gameObject.activeInHierarchy)
@@ -82,6 +82,7 @@ public class AIManager : MonoBehaviour
 
                 yield return new WaitForSeconds(Random.Range(0, .25f));
             }
+            yield return new WaitForSeconds(Random.Range(0, .25f));
         }
     }
 }
