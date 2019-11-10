@@ -196,7 +196,6 @@ GameObject:
   m_Component:
   - component: {fileID: 396691831}
   - component: {fileID: 396691830}
-  - component: {fileID: 396691832}
   m_Layer: 0
   m_Name: Gamejam Death Tycoon variation - Charles Thiollier 1
   m_TagString: Untagged
@@ -314,29 +313,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &396691832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396691829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/Design Mode/Design_Music
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!1 &785001338
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,7 +731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ListenerNumber: -1
 --- !u!20 &1456686363
 Camera:
   m_ObjectHideFlags: 0
@@ -846,6 +821,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoreFront
       objectReference: {fileID: 0}
+    - target: {fileID: 8900513810382624806, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: PreviewParent
+      value: 
+      objectReference: {fileID: 1372501539}
+    - target: {fileID: 8900513810382624806, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: PreviewTemp
+      value: 
+      objectReference: {fileID: 1948405951}
+    - target: {fileID: 8900513810382624806, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: PreviewRender
+      value: 
+      objectReference: {fileID: 8400000, guid: 191dcbf031ae67d4b99fc8d3d936f481, type: 2}
     - target: {fileID: 8900513810449434568, guid: 878972a31928c9d42a95e37058a8ef26,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -951,21 +941,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8900513810382624806, guid: 878972a31928c9d42a95e37058a8ef26,
-        type: 3}
-      propertyPath: PreviewParent
-      value: 
-      objectReference: {fileID: 1372501539}
-    - target: {fileID: 8900513810382624806, guid: 878972a31928c9d42a95e37058a8ef26,
-        type: 3}
-      propertyPath: PreviewTemp
-      value: 
-      objectReference: {fileID: 1948405951}
-    - target: {fileID: 8900513810382624806, guid: 878972a31928c9d42a95e37058a8ef26,
-        type: 3}
-      propertyPath: PreviewRender
-      value: 
-      objectReference: {fileID: 8400000, guid: 191dcbf031ae67d4b99fc8d3d936f481, type: 2}
     - target: {fileID: 8900513810384343705, guid: 878972a31928c9d42a95e37058a8ef26,
         type: 3}
       propertyPath: m_AnchorMax.x
