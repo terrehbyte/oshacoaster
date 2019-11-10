@@ -15,14 +15,13 @@ public class DesignController : MonoBehaviour
     // Player camera used for design mode
     public Camera targetCamera;
 
-    [SerializeField]
-    private float placementAngle = 0.0f;
-    private float placementDelta = 90.0f;
+    private int placementRotations;
+    private const float placementDelta = 90.0f; // DON'T CHANGE THIS
     private Quaternion placementRotation
     {
         get
         {
-            return Quaternion.AngleAxis(placementAngle, Vector3.up);
+            return Quaternion.AngleAxis(placementRotations * placementDelta, Vector3.up);
         }
     }
 
@@ -158,14 +157,15 @@ public class DesignController : MonoBehaviour
 
         if(Input.GetButtonDown("Rotate"))
         {
-            placementAngle += placementDelta;
+            // TODO: magic numberssssss ONLY FOUR DIFFERENT ORIENTATIONS yo
+            placementRotations = (placementRotations + 1) % 4;
             previewTransform.rotation = placementRotation;
         }
 
         if(Input.GetButtonDown("Fire1") && grid.CheckBuildEligible(tileLoc))
         {
             var obj = Instantiate(CurrentBuildCandidate.buildPrefab, buildLoc, placementRotation);
-            grid.WriteGridCell(tileLoc, obj);
+            grid.WriteGridCell(tileLoc, placementRotations, obj, CurrentBuildCandidate);
         }
     }
 

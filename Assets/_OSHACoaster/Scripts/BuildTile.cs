@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,16 +8,24 @@ public class BuildTile : ScriptableObject
 {
     public enum TileTypes
     {
+        NONE,
         WALKABLE,
         SCENARY,
-        ATTRCTION,
-        NORTH,
-        EAST,
-        SOUTH,
-        WEST
+        ATTRACTION,
+        RAIL
     }
+
+    public enum TileConnections
+    {
+        NORTH = 0,
+        EAST = 1,
+        SOUTH = 2,
+        WEST = 3
+    }
+
     public string myName;
-    public TileTypes TileType;
+    public TileTypes tileType;
+    public TileConnections[] baseConnections = new TileConnections[0];
     public Mesh buildMesh;
     public GameObject buildPrefab;
 
@@ -26,11 +35,12 @@ public class BuildTile : ScriptableObject
         {
             buildMesh = buildPrefab.GetComponentInChildren<MeshFilter>().sharedMesh;
         }
+
+        Debug.Assert(baseConnections != null);
+        Debug.Assert(baseConnections?.Length < 4);
     }
     public void ForceValidate()
     {
-    
-            buildMesh = buildPrefab.GetComponentInChildren<MeshFilter>().sharedMesh;
-  
+        buildMesh = buildPrefab.GetComponentInChildren<MeshFilter>().sharedMesh;  
     }
 }
