@@ -297,6 +297,14 @@ public class StockList : MonoBehaviour
     {
         DesignController.instance.gameObject.SetActive(_toggle);
         StoreFrontHierarchy.SetActive(!_toggle);
+
+        //Fabian's Audio Addition
+        //AudioSource _audioSource = GetComponent<AudioSource>();
+
+        //if(_toggle == true)
+        //{
+        //    _audioSource.Play();
+        //}
     }
 
 }
