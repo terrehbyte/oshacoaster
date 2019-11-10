@@ -6341,8 +6341,6 @@ GameObject:
   - component: {fileID: 8900513809524580733}
   - component: {fileID: 8900513809524580730}
   - component: {fileID: 8900513809524580731}
-  - component: {fileID: 7859699222876710093}
-  - component: {fileID: 1836294742181094037}
   - component: {fileID: 5426088735034919298}
   m_Layer: 5
   m_Name: btn_Buy
@@ -6473,41 +6471,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
---- !u!114 &7859699222876710093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8900513809524580729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac8f2e5a30d0b4646a9e6cd29cd8bc0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1836294742181094037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8900513809524580729}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/SFX/BoughtItem
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!82 &5426088735034919298
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6517,7 +6480,8 @@ AudioSource:
   m_GameObject: {fileID: 8900513809524580729}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1359351114026196683, guid: 48c7dc9a53790694cb6f53b904653a83,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 13328881160d2b1489eb881757c27aff, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
