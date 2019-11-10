@@ -149,7 +149,8 @@ public class DesignController : MonoBehaviour
         Debug.DrawRay(buildLoc, Vector3.up * 5.0f, Color.green, 0.0f);
         lastBuildHit = buildHit;
 
-        Material previewMaterial = grid.CheckBuildEligible(tileLoc) ? previewValidMaterial : previewInvalidMaterial;
+        bool buildDoable = grid.CheckBuildEligible(tileLoc, CurrentBuildCandidate);
+        Material previewMaterial = buildDoable ? previewValidMaterial : previewInvalidMaterial;
         previewTransform.position = buildLoc;
         previewMeshRenderer.material = previewMaterial;
         tilePreviewTransform.position = buildLoc;
@@ -162,11 +163,14 @@ public class DesignController : MonoBehaviour
             previewTransform.rotation = placementRotation;
         }
 
-        if(Input.GetButtonDown("Fire1") && grid.CheckBuildEligible(tileLoc))
+        if(Input.GetButtonDown("Fire1") && buildDoable)
         {
             var obj = Instantiate(CurrentBuildCandidate.buildPrefab, buildLoc, placementRotation);
-            grid.WriteGridCell(tileLoc, placementRotations, obj, CurrentBuildCandidate);
-
+            if (CurrentBuildCandidate.tileType != BuildTile.TileTypes.NONE)
+            {
+                grid.WriteGridCell(tileLoc, placementRotations, obj, CurrentBuildCandidate);
+            }
+            
             var config = obj.GetComponent<RailConfiguration>();
             if(config != null)
             {
