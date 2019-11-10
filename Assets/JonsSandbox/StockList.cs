@@ -200,34 +200,37 @@ public class StockList : MonoBehaviour
                 bt.myName = CurrentItem.itemname;
                 bt.tileType = CurrentItem.AssetType;// == AssetTypes.TRACK ? BuildTile.TileTypes.RAIL : BuildTile.TileTypes.SCENARY;
                 CurrentItem.qtyInStock = 1;
-               BuildTile. TileConnections[] baseConnections = new BuildTile. TileConnections[CurrentItem.connections.Length];
-                //Decode connections.
-                int r = -1;
-                string cons = CurrentItem.connections.ToUpper();
-                for(int i=0;i<CurrentItem.connections.Length;i++)
+
+                if (bt.tileType == BuildTile.TileTypes.RAIL)
                 {
-                    switch (cons[i])
+                    BuildTile.TileConnections[] baseConnections = new BuildTile.TileConnections[CurrentItem.connections.Length];
+                    //Decode connections.
+                    int r = -1;
+                    string cons = CurrentItem.connections.ToUpper();
+                    for (int i = 0; i < CurrentItem.connections.Length; i++)
                     {
-                        case 'N':
-                            r = 0;
-                            break;
-                        case 'E':
-                            r = 1;
-                            break;
-                        case 'S':
-                            r = 2;
-                            break;
-                        case 'W':
-                            r = 3;
-                            break;
+                        switch (cons[i])
+                        {
+                            case 'N':
+                                r = 0;
+                                break;
+                            case 'E':
+                                r = 1;
+                                break;
+                            case 'S':
+                                r = 2;
+                                break;
+                            case 'W':
+                                r = 3;
+                                break;
 
-                        default:
-                            break;
+                            default:
+                                break;
+                        }
+                        baseConnections[i] = (BuildTile.TileConnections)r;
                     }
-                    baseConnections[i] = (BuildTile.TileConnections)r ;
+                    bt.baseConnections = baseConnections;
                 }
-                bt.baseConnections = baseConnections;
-
 
                 bt.ForceValidate();
                 GamePlay.inventory.Add(CurrentItem.itemname, CurrentItem);
