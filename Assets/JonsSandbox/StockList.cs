@@ -109,6 +109,34 @@ public class StockList : MonoBehaviour
                 bt.myName = CurrentItem.itemname;
                 bt.tileType = CurrentItem.AssetType == AssetTypes.TRACK ? BuildTile.TileTypes.RAIL : BuildTile.TileTypes.SCENARY;
                 CurrentItem.qtyInStock = 1;
+               BuildTile. TileConnections[] baseConnections = new BuildTile. TileConnections[CurrentItem.connections.Length];
+                //Decode connections.
+                int r = -1;
+                for(int i=0;i<CurrentItem.connections.Length;i++)
+                {
+                    switch (CurrentItem.connections[i])
+                    {
+                        case 'N':
+                            r = 0;
+                            break;
+                        case 'E':
+                            r = 1;
+                            break;
+                        case 'S':
+                            r = 2;
+                            break;
+                        case 'W':
+                            r = 3;
+                            break;
+
+                        default:
+                            break;
+                    }
+                    baseConnections[i] = (BuildTile.TileConnections)r ;
+                }
+                bt.baseConnections = baseConnections;
+
+
                 bt.ForceValidate();
                 GamePlay.inventory.Add(CurrentItem.itemname, CurrentItem);
                 DesignController.instance.AddBuildTile(bt);
