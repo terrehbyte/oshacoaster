@@ -27,6 +27,12 @@ public class RailCarController : MonoBehaviour
         rbody = GetComponent<Rigidbody>();
         tilePosition = GamePlay.grid.GetTileLocation(transform.position);
 
+        if(!GamePlay.grid.CheckWithinBounds(tilePosition))
+        {
+            enabled = false;
+            return;
+        }
+
         var cellObj = GamePlay.grid.GetCellData(GamePlay.grid.GetTileLocation(transform.position)).cellObject;
         if (cellObj != null)
         {

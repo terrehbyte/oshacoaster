@@ -8,11 +8,11 @@ public class BuildTile : ScriptableObject
 {
     public enum TileTypes
     {
-        NONE,
-        WALKABLE,
-        SCENARY,
-        ATTRACTION,
-        RAIL
+        NONE = 0,
+        WALKABLE = 1,
+        SCENARY = 2,
+        ATTRACTION = 3,
+        RAIL = 4
     }
 
     public enum TileConnections
