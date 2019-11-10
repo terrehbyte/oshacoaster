@@ -15,6 +15,8 @@ public class AIManager : MonoBehaviour
     List<GameObject> Meeples = new List<GameObject>();
     int TargetCount;
     int MeepleCount;
+    public static AIManager instance;
+  
     void Start()
     {
     }
@@ -39,12 +41,18 @@ public class AIManager : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null && instance != this)
+            Destroy(gameObject);
+        if (instance == null)
+            instance = this;
+
         RefreshAvailableTargets();
         RefreshAvailableMeeeples();
         StartCoroutine(MonitorAI());
         
     }
 
+   
     private IEnumerator MonitorAI()
     {
         int stepCounter = 0;
@@ -60,17 +68,19 @@ public class AIManager : MonoBehaviour
                     RefreshAvailableTargets();
 
                 }
-                NavMeshAgent nma = Meeples[i].GetComponent<NavMeshAgent>();
-                Animator Anim = Meeples[i].GetComponentInChildren<Animator>();
-                float vel = nma.velocity.magnitude;
-                Anim.SetFloat("Vel", vel);
-                if (vel< IdleVelocity)
+                if (Meeples[i].gameObject.activeInHierarchy)
                 {
-                    nma.SetDestination(Targets[Random.Range(0, TargetCount)].transform.position);
+                    NavMeshAgent nma = Meeples[i].GetComponent<NavMeshAgent>();
+                    Animator Anim = Meeples[i].GetComponentInChildren<Animator>();
+                    float vel = nma.velocity.magnitude;
+                    Anim.SetFloat("Vel", vel);
+                    if (vel < IdleVelocity)
+                    {
+                        nma.SetDestination(Targets[Random.Range(0, TargetCount)].transform.position);
+                    }
                 }
-              
 
-                yield return new WaitForSeconds(Random.Range(0, 3.1f));
+                yield return new WaitForSeconds(Random.Range(0, .25f));
             }
         }
     }
