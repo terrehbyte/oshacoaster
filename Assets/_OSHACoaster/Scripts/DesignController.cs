@@ -166,6 +166,23 @@ public class DesignController : MonoBehaviour
         {
             var obj = Instantiate(CurrentBuildCandidate.buildPrefab, buildLoc, placementRotation);
             grid.WriteGridCell(tileLoc, placementRotations, obj, CurrentBuildCandidate);
+
+            var config = obj.GetComponent<RailConfiguration>();
+            if(config != null)
+            {
+                var potentialConnections = grid.GetConnectingPositions(tileLoc);
+                
+                foreach(var con in potentialConnections)
+                {
+                    if (!grid.CheckWithinBounds(con) || !grid.CheckOccupied(con)) { continue; }
+                    var cell = grid.GetCellData(con);
+                    var prevConfig = cell.cellObject.GetComponent<RailConfiguration>();
+                    if(prevConfig != null)
+                    {
+                        prevConfig.nextRailTilePosition = config;
+                    }
+                }
+            }
         }
     }
 

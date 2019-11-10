@@ -25,6 +25,11 @@ public class GridController : MonoBehaviour
     [SerializeField]
     private LineRenderer gridLines;
 
+    void Awake()
+    {
+        GamePlay.grid = this;
+    }
+
     void Start()
     {
         gridCells = new GridCell[gridDimensions.x * gridDimensions.z];
@@ -185,6 +190,60 @@ public class GridController : MonoBehaviour
             }
         }
     }
+
+    public Vector3Int[] GetNeighboringTilePositions(Vector3Int tileLocation)
+    {
+        Vector3Int[] offsets = new Vector3Int[8];
+        offsets[0] = new Vector3Int(-1, 0, 1);
+        offsets[1] = new Vector3Int(0, 0, 1);
+        offsets[2] = new Vector3Int(1, 0, 1);
+
+        offsets[3] = new Vector3Int(1, 0, 0);
+
+        offsets[4] = new Vector3Int(1, 0, -1);
+        offsets[5] = new Vector3Int(0, 0, -1);
+        offsets[6] = new Vector3Int(-1, 0, -1);
+
+        offsets[7] = new Vector3Int(-1, 0, 0);
+
+        for (int i = 0; i < offsets.Length; ++i)
+        {
+            offsets[i] += tileLocation;
+        }
+
+        return offsets;
+    }
+
+    public Vector3Int GetConnectingTileOffset(BuildTile.TileConnections connection)
+    {
+        switch (connection)
+        {
+            case BuildTile.TileConnections.NORTH:
+                return new Vector3Int(0, 0, 1);
+            case BuildTile.TileConnections.EAST:
+                return new Vector3Int(1, 0, 0);
+            case BuildTile.TileConnections.SOUTH:
+                return new Vector3Int(0, 0, -1);
+            case BuildTile.TileConnections.WEST:
+                return new Vector3Int(-1, 0, 0);
+            default:
+                return new Vector3Int(0, 0, 0);
+        }
+
+    }
+
+    public Vector3Int[] GetConnectingPositions(Vector3Int tileLocation)
+    {
+        var cell = GetCellData(tileLocation);
+
+        List<Vector3Int> positions = new List<Vector3Int>();
+        foreach(var con in cell.connections)
+        {
+            positions.Add(tileLocation + GetConnectingTileOffset(con));
+        }
+
+        return positions.ToArray();
+    }
 }
 
 [System.Serializable]
@@ -230,24 +289,5 @@ public struct GridCell
         {
             return tileType.baseConnections.Length;
         }
-    }
-
-    // Returns the direction that traffic can flow in
-    // Returns -1 if no connection can be made
-    public int CanConnect(BuildTile.TileConnections[] sourceTypes)
-    {
-        // build acceptable connections
-        var rotatedConnections = connections;
-        for (int i = 0; i < rotatedConnections.Length; ++i)
-        {
-            rotatedConnections[i] = (BuildTile.TileConnections)((int)(rotatedConnections[i] + 2) % 4);
-        }
-
-        foreach (var conA in sourceTypes)
-        {
-            //Array.IndexOf
-        }
-
-        return -1;
     }
 }
