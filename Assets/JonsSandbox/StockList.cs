@@ -6,7 +6,8 @@ using Newtonsoft.Json;
 using DG.Tweening;
 using TMP = TMPro.TextMeshProUGUI;
 using UnityEngine.SceneManagement;
-
+using System;
+using System.IO;
 
 //TODO: Redesign stock items to derive from a base class, with two (or more) subclasses for various types.
 //These should be desplayed with the main base variables displayed in  a header, and the sub variables in a custom
@@ -17,6 +18,27 @@ public class StockList : MonoBehaviour
 {
     public static StockList instance;
     public Sprite[] thumbs;
+
+    internal void UpdateDirections(string str)
+    {
+        CurrentItem.connections = str;
+    }
+#if UNITY_EDITOR
+    internal void Save()
+    {
+      
+        String TracksToSave = JsonConvert.SerializeObject(trackRoot.Property1);
+        Debug.Log(TracksToSave);
+        string fPath = UnityEditor.AssetDatabase.GetAssetPath(trackInventory);
+        using (StreamWriter writer = File.CreateText(fPath))
+        {
+            writer.Write(TracksToSave);
+        }
+    }
+
+
+#endif
+
     public GameObject shopItemButton;
     public TextAsset carInventory;
     public TextAsset trackInventory;
@@ -45,14 +67,14 @@ public class StockList : MonoBehaviour
         carRoot.Property1 = JsonConvert.DeserializeObject<Car[]>(carInventory.ToString());
         trackRoot.Property1 = JsonConvert.DeserializeObject<Track[]>(trackInventory.ToString());
 
-        foreach (BaseItem bi in carRoot.Property1)
-        {
-            tmp = Instantiate(shopItemButton, contentHolder);
-            tmpBtn = tmp.GetComponent<StockButton>();
-            tmpBtn.itemNameLbl.text = bi.itemname;
-            tmpBtn.itemThumb.sprite = thumbs.FirstOrDefault<Sprite>(x => x.name == bi.prefab);
-            tmpBtn.OriginalObject = bi;
-        }
+        //foreach (BaseItem bi in carRoot.Property1)
+        //{
+        //    tmp = Instantiate(shopItemButton, contentHolder);
+        //    tmpBtn = tmp.GetComponent<StockButton>();
+        //    tmpBtn.itemNameLbl.text = bi.itemname;
+        //    tmpBtn.itemThumb.sprite = thumbs.FirstOrDefault<Sprite>(x => x.name == bi.prefab);
+        //    tmpBtn.OriginalObject = bi;
+        //}
         foreach (BaseItem bi in trackRoot.Property1)
         {
             tmp = Instantiate(shopItemButton, contentHolder);
@@ -72,11 +94,11 @@ public class StockList : MonoBehaviour
     {
         if (detailsPane.alpha == 0)
             detailsPane.DOFade(1, .3f);
-
         wallet.text = $"Balance: {GamePlay.coin}";
         mainDetails[0].text = Bi.itemname;
         mainDetails[1].text = $"{Bi.desc}\nPurchase price: {Bi.purchasecost.ToString()}\nRunning costs: {Bi.maintcost.ToString()}";
         CurrentItem = Bi;
+        TrackEditor.instance.Displayer(CurrentItem.connections);
         int SaveLayer = PreviewTemp.layer;
 
         Destroy(PreviewTemp);

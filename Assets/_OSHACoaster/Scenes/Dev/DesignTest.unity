@@ -512,9 +512,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4021544734613565821, guid: e43ce3ac61add464f90f97dc7430e724,
         type: 3}
+      propertyPath: _buildCandidates.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021544734613565821, guid: e43ce3ac61add464f90f97dc7430e724,
+        type: 3}
       propertyPath: targetCamera
       value: 
       objectReference: {fileID: 1456686363}
+    - target: {fileID: 4021544734613565821, guid: e43ce3ac61add464f90f97dc7430e724,
+        type: 3}
+      propertyPath: _buildCandidates.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7032abf8521977f499fd4264a3b5dcb7,
+        type: 2}
+    - target: {fileID: 4021544734613565821, guid: e43ce3ac61add464f90f97dc7430e724,
+        type: 3}
+      propertyPath: _buildCandidates.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: bedf47dc67e7f8246828a930b213823a,
+        type: 2}
     - target: {fileID: 4021544735284940262, guid: e43ce3ac61add464f90f97dc7430e724,
         type: 3}
       propertyPath: m_AnchorMax.x
