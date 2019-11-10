@@ -67,14 +67,14 @@ public class StockList : MonoBehaviour
         carRoot.Property1 = JsonConvert.DeserializeObject<Car[]>(carInventory.ToString());
         trackRoot.Property1 = JsonConvert.DeserializeObject<Track[]>(trackInventory.ToString());
 
-        foreach (BaseItem bi in carRoot.Property1)
-        {
-            tmp = Instantiate(shopItemButton, contentHolder);
-            tmpBtn = tmp.GetComponent<StockButton>();
-            tmpBtn.itemNameLbl.text = bi.itemname;
-            tmpBtn.itemThumb.sprite = thumbs.FirstOrDefault<Sprite>(x => x.name == bi.prefab);
-            tmpBtn.OriginalObject = bi;
-        }
+        //foreach (BaseItem bi in carRoot.Property1)
+        //{
+        //    tmp = Instantiate(shopItemButton, contentHolder);
+        //    tmpBtn = tmp.GetComponent<StockButton>();
+        //    tmpBtn.itemNameLbl.text = bi.itemname;
+        //    tmpBtn.itemThumb.sprite = thumbs.FirstOrDefault<Sprite>(x => x.name == bi.prefab);
+        //    tmpBtn.OriginalObject = bi;
+        //}
         foreach (BaseItem bi in trackRoot.Property1)
         {
             tmp = Instantiate(shopItemButton, contentHolder);
