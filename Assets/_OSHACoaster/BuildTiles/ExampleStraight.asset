@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d25ebe9119a56d4ea236cebda018442, type: 3}
-  m_Name: ExampleLeft
+  m_Name: ExampleStraight
   m_EditorClassIdentifier: 
-  myName: ExampleLeft
+  myName: ExampleStraight
   tileType: 4
-  baseConnections: 0300000002000000
-  buildMesh: {fileID: 7219014914954159965, guid: 9f0623d5c5ebf574b9c25a316e726ef8,
+  baseConnections: 0000000002000000
+  buildMesh: {fileID: 3051835605512915837, guid: 5061ac01f9f1578478fb3fca30bde7b7,
     type: 3}
-  buildPrefab: {fileID: 4370219181888705282, guid: 32f5ba7fd03be3e40b61834216680977,
+  buildPrefab: {fileID: 4370219181888705282, guid: 814f90e5ed780054f9781dec537d3dab,
     type: 3}
