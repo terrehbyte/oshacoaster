@@ -34,8 +34,6 @@ public class StockList : MonoBehaviour
         {
             writer.Write(TracksToSave);
         }
-
-
     }
 #endif
 
