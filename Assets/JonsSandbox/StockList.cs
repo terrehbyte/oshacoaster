@@ -54,6 +54,8 @@ public class StockList : MonoBehaviour
 
     public GameObject PreviewParent;
     public GameObject PreviewTemp;
+
+    public RenderTexture PreviewRender;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -81,7 +83,9 @@ public class StockList : MonoBehaviour
             bi.AssetType = AssetTypes.TRACK;
             tmpBtn = tmp.GetComponent<StockButton>();
             tmpBtn.itemNameLbl.text = bi.itemname;
-            tmpBtn.itemThumb.sprite = thumbs.FirstOrDefault<Sprite>(x => x.name == bi.prefab);
+            Texture2D tmpThumb = Resources.Load(bi.prefab + "_thumb") as Texture2D;
+            if (tmpThumb != null)
+                tmpBtn.itemThumb.texture = tmpThumb;
             tmpBtn.OriginalObject = bi;
         }
         Invoke("DisableDesign", .25f); 
@@ -118,6 +122,33 @@ public class StockList : MonoBehaviour
         detailsPane.DOFade(0, .3f);
     }
 
+    public void SaveThumb()
+    {
+        // For testing purposes, also write to a file in the project folder
+        RenderTexture.active = PreviewRender;
+        Texture2D texture = new Texture2D(PreviewRender.width, PreviewRender.height, TextureFormat.ARGB32, false, false);
+        texture.ReadPixels(new Rect(0, 0, PreviewRender.width, PreviewRender.height), 0, 0);
+        texture.Apply();
+
+        byte[] bytes = texture.EncodeToPNG();
+        UnityEngine.Object.Destroy(texture);
+
+        string path;
+        
+        path=UnityEditor.AssetDatabase.GetAssetPath(PreviewRender) + "_thumb.png";
+       
+        path=path.Replace("preview.renderTexture", CurrentItem.prefab);
+        
+        System.IO.File.WriteAllBytes(path, bytes);
+        UnityEditor.AssetDatabase.ImportAsset(path);
+        fadeDialogTMP.text=$"Saved to {path}";
+        Sequence dialogBounceFade = DOTween.Sequence();
+        dialogBounceFade.Append(fadeDialog.DOFade(1, .3f));
+        dialogBounceFade.AppendInterval(5);
+        dialogBounceFade.Append(fadeDialog.DOFade(0, .3f));
+        dialogBounceFade.PlayForward();
+
+    }
     public void BuyItem(bool _cheatMode)
     {
         if (GamePlay.inventory == null)
