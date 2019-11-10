@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 5cf0204b87e12984abc55b5a109d924d, type: 2}
 --- !u!1 &3634532
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,7 +786,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -1328,6 +1328,7 @@ MonoBehaviour:
   designModeMusic:
   - {fileID: 8300000, guid: 319681902ad398c489fef4e5d8a1dadf, type: 3}
   - {fileID: 8300000, guid: 938eba255500c4947b25fba0bb90a0ae, type: 3}
+  audioSource: {fileID: 0}
 --- !u!82 &2019687246
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1442,6 +1443,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
+        type: 3}
+      propertyPath: PreviewParent
+      value: 
+      objectReference: {fileID: 1372501539}
+    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
+        type: 3}
+      propertyPath: PreviewTemp
+      value: 
+      objectReference: {fileID: 1948405951}
+    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
+        type: 3}
+      propertyPath: StoreFrontHierarchy
+      value: 
+      objectReference: {fileID: 1433799480}
     - target: {fileID: 4843830429317681749, guid: 636df811438b1e5408cec535300a6cba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1547,21 +1563,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
-        type: 3}
-      propertyPath: PreviewParent
-      value: 
-      objectReference: {fileID: 1372501539}
-    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
-        type: 3}
-      propertyPath: PreviewTemp
-      value: 
-      objectReference: {fileID: 1948405951}
-    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
-        type: 3}
-      propertyPath: StoreFrontHierarchy
-      value: 
-      objectReference: {fileID: 1433799480}
     - target: {fileID: 4843830429382575876, guid: 636df811438b1e5408cec535300a6cba,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2067,11 +2068,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4843830430396549914, guid: 636df811438b1e5408cec535300a6cba,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4843830429532505655, guid: 636df811438b1e5408cec535300a6cba,
         type: 3}
       propertyPath: m_Sprite
@@ -2162,6 +2158,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843830430396549914, guid: 636df811438b1e5408cec535300a6cba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3658632065052787523, guid: 636df811438b1e5408cec535300a6cba, type: 3}
