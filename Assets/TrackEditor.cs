@@ -25,6 +25,7 @@ public class TrackEditor : MonoBehaviour
 
     public void Displayer(string str)
     {
+        if (str == null) return;
         str = str.ToUpper();
         directions[0].isOn = str.IndexOf('N') > 0;
         directions[1].isOn = str.IndexOf('E') > 0;

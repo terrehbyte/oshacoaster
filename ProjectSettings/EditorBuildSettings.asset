@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_OSHACoaster/Scenes/Dev/DesignTest.unity
     guid: 61f4d261b210fdd4c9a3cd8845822a02
+  - enabled: 1
+    path: Assets/_OSHACoaster/Scenes/Dev/jonsSandBox9pm.unity
+    guid: 0631f267ec88f724780fd9dfc2409270
   m_configObjects: {}

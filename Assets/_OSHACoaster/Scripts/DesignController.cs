@@ -183,7 +183,10 @@ public class DesignController : MonoBehaviour
                     var prevConfig = cell.cellObject.GetComponent<RailConfiguration>();
                     if(prevConfig != null)
                     {
-                        prevConfig.nextRailTilePosition = config;
+                        if(prevConfig.nextRailTilePosition == null)
+                            prevConfig.nextRailTilePosition = config;
+                        else
+                            config.nextRailTilePosition = prevConfig;
                     }
                 }
             }

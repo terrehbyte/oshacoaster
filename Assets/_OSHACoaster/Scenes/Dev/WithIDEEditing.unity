@@ -996,6 +996,12 @@ PrefabInstance:
       propertyPath: createFields.Array.data[4]
       value: 
       objectReference: {fileID: 1909003549}
+    - target: {fileID: 8900513810382624806, guid: 878972a31928c9d42a95e37058a8ef26,
+        type: 3}
+      propertyPath: DefaultPrefab
+      value: 
+      objectReference: {fileID: 6447745632364111380, guid: c20626bba90bd3a429425e51dba8b761,
+        type: 3}
     - target: {fileID: 8900513810384343705, guid: 878972a31928c9d42a95e37058a8ef26,
         type: 3}
       propertyPath: m_AnchorMax.x
