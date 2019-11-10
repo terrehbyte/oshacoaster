@@ -5,13 +5,12 @@ using UnityEngine;
 public class DesignMusicPlaylist : MonoBehaviour
 {
     public AudioClip[] designModeMusic;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     public void ModeChange(bool isToggleOn)
     {
         //bool isToggleOn = _bool;
 
-        Debug.Log(isToggleOn);
         if(isToggleOn == true)
         {
             audioSource.clip = designModeMusic[2];
@@ -28,7 +27,7 @@ public class DesignMusicPlaylist : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = FindObjectOfType<AudioSource>();
+        //audioSource = FindObjectOfType<AudioSource>();
 
         audioSource.loop = false;
     }

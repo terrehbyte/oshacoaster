@@ -62,7 +62,7 @@ public class AIManager : MonoBehaviour
             RefreshAvailableMeeeples();
             RefreshAvailableTargets();
 
-            if (Meeples.Count > 1 || Targets.Count > 1)
+            if (Meeples.Count > 0 && Targets.Count > 0)
             {
 
                 for (int i = 0; i < MeepleCount; i++)
