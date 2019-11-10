@@ -26,7 +26,7 @@ public class StockList : MonoBehaviour
 #if UNITY_EDITOR
     internal void Save()
     {
-      
+
         String TracksToSave = JsonConvert.SerializeObject(trackRoot.Property1);
         Debug.Log(TracksToSave);
         string fPath = UnityEditor.AssetDatabase.GetAssetPath(trackInventory);
@@ -34,6 +34,43 @@ public class StockList : MonoBehaviour
         {
             writer.Write(TracksToSave);
         }
+    }
+
+    public GameObject DefaultPrefab;
+    public TMPro.TMP_InputField[] createFields;
+    public void SaveNew()
+    {
+        //Use a list to make this work
+        List<Track> createNewList = JsonConvert.DeserializeObject<Track[]>(trackInventory.ToString()).ToList<Track>();
+        Track tmp = new Track();
+        tmp.itemname = createFields[0].text ;
+        tmp.desc  = createFields[1].text;
+        tmp.purchasecost = int.Parse(createFields[2].text);
+        tmp.maintcost = int.Parse(createFields[3].text);
+        tmp.prefab = createFields[4].text;
+        createNewList.Add(tmp);
+        
+
+        String TracksToSave = JsonConvert.SerializeObject(createNewList.ToArray());
+        Debug.Log(TracksToSave);
+        string fPath = UnityEditor.AssetDatabase.GetAssetPath(trackInventory);
+        using (StreamWriter writer = File.CreateText(fPath))
+        {
+            writer.Write(TracksToSave);
+        }
+        //Ideally we want to create a prefab automatically from the model name
+        string[] tgoGuid = UnityEditor.AssetDatabase.FindAssets(tmp.prefab);
+        //We'll assume we only get 1 back bad bad bad
+        string tgoPath = UnityEditor.AssetDatabase.GUIDToAssetPath(tgoGuid[0]);
+        GameObject tgo = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>(tgoPath);
+        // Create the new Prefab.
+        string localPath = UnityEditor.AssetDatabase.GetAssetPath(DefaultPrefab);
+        localPath = localPath.Replace("defaultAss", tmp.prefab);
+
+       var modelRootGo = (GameObject)UnityEditor.AssetDatabase.LoadMainAssetAtPath(tgoPath);
+
+        GameObject instanceRoot = (GameObject)UnityEditor.PrefabUtility.InstantiatePrefab(modelRootGo);
+        var variantRoot = UnityEditor.PrefabUtility.SaveAsPrefabAsset(instanceRoot, localPath);
     }
 
 
