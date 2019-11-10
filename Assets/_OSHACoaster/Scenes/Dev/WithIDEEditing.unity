@@ -1002,8 +1002,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1921436580}
-        m_MethodName: set_enabled
+      - m_Target: {fileID: 2019687245}
+        m_MethodName: ModeChange
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1025,7 +1025,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7357721029456973252, guid: 48c7dc9a53790694cb6f53b904653a83,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 038aa30799586e046895f8cf32065d57, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4cc367692aa27dd4dbe7a1c0c182a869, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1298,7 +1298,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2019687242}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!4 &2019687244
 Transform:
   m_ObjectHideFlags: 0
@@ -1328,7 +1328,7 @@ MonoBehaviour:
   designModeMusic:
   - {fileID: 8300000, guid: 319681902ad398c489fef4e5d8a1dadf, type: 3}
   - {fileID: 8300000, guid: 938eba255500c4947b25fba0bb90a0ae, type: 3}
-  audioSource: {fileID: 0}
+  - {fileID: 8300000, guid: 4cc367692aa27dd4dbe7a1c0c182a869, type: 3}
 --- !u!82 &2019687246
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1340,7 +1340,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7357721029456973252, guid: 48c7dc9a53790694cb6f53b904653a83,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4cc367692aa27dd4dbe7a1c0c182a869, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1443,21 +1443,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
-        type: 3}
-      propertyPath: PreviewParent
-      value: 
-      objectReference: {fileID: 1372501539}
-    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
-        type: 3}
-      propertyPath: PreviewTemp
-      value: 
-      objectReference: {fileID: 1948405951}
-    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
-        type: 3}
-      propertyPath: StoreFrontHierarchy
-      value: 
-      objectReference: {fileID: 1433799480}
     - target: {fileID: 4843830429317681749, guid: 636df811438b1e5408cec535300a6cba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1563,6 +1548,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
+        type: 3}
+      propertyPath: PreviewParent
+      value: 
+      objectReference: {fileID: 1372501539}
+    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
+        type: 3}
+      propertyPath: PreviewTemp
+      value: 
+      objectReference: {fileID: 1948405951}
+    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
+        type: 3}
+      propertyPath: StoreFrontHierarchy
+      value: 
+      objectReference: {fileID: 1433799480}
     - target: {fileID: 4843830429382575876, guid: 636df811438b1e5408cec535300a6cba,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2068,6 +2068,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4843830430396549914, guid: 636df811438b1e5408cec535300a6cba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4843830429532505655, guid: 636df811438b1e5408cec535300a6cba,
         type: 3}
       propertyPath: m_Sprite
@@ -2158,11 +2163,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4843830430396549914, guid: 636df811438b1e5408cec535300a6cba,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3658632065052787523, guid: 636df811438b1e5408cec535300a6cba, type: 3}
