@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Design Mode/Design_Music
+  Event: event:/Design Mode/Variations_Music
   PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
@@ -1036,7 +1036,7 @@ PrefabInstance:
         type: 3}
       propertyPath: trackInventory
       value: 
-      objectReference: {fileID: 4900000, guid: 7df50376358cf8e47bfc5d271188c14d, type: 3}
+      objectReference: {fileID: 4900000, guid: ec7ceeaf411e4024aa681d8149644673, type: 3}
     - target: {fileID: 8900513810384343705, guid: 878972a31928c9d42a95e37058a8ef26,
         type: 3}
       propertyPath: m_AnchorMax.x
