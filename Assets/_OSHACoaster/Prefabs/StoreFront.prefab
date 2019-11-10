@@ -6341,10 +6341,7 @@ GameObject:
   - component: {fileID: 8900513809524580733}
   - component: {fileID: 8900513809524580730}
   - component: {fileID: 8900513809524580731}
-<<<<<<< HEAD
-=======
   - component: {fileID: 7859699222876710093}
->>>>>>> 8570b0c074bef646e27a1f443e0e69e2f746718b
   - component: {fileID: 5426088735034919298}
   m_Layer: 5
   m_Name: btn_Buy
@@ -6475,8 +6472,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-<<<<<<< HEAD
-=======
 --- !u!114 &7859699222876710093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6489,7 +6484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8f2e5a30d0b4646a9e6cd29cd8bc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> 8570b0c074bef646e27a1f443e0e69e2f746718b
 --- !u!82 &5426088735034919298
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6499,8 +6493,7 @@ AudioSource:
   m_GameObject: {fileID: 8900513809524580729}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -1359351114026196683, guid: 48c7dc9a53790694cb6f53b904653a83,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 13328881160d2b1489eb881757c27aff, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
