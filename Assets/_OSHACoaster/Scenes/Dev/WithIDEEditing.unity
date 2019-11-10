@@ -1330,7 +1330,10 @@ MonoBehaviour:
   designModeMusic:
   - {fileID: 8300000, guid: 319681902ad398c489fef4e5d8a1dadf, type: 3}
   - {fileID: 8300000, guid: 938eba255500c4947b25fba0bb90a0ae, type: 3}
+  playModeMusic:
   - {fileID: 8300000, guid: 5c65cd704330f2d4db2a1f51cad2f1aa, type: 3}
+  - {fileID: 8300000, guid: 4cc367692aa27dd4dbe7a1c0c182a869, type: 3}
+  - {fileID: 8300000, guid: ee0eb0115714c0b4b849389d54808bfc, type: 3}
   audioSource: {fileID: 2019687246}
 --- !u!82 &2019687246
 AudioSource:
