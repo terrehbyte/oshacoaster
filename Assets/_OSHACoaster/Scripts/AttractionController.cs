@@ -6,7 +6,10 @@ using UnityEngine.Events;
 [SelectionBase]
 public class AttractionController : MonoBehaviour
 {
+    [SerializeField]
     List<GameObject> riders = new List<GameObject>();
+    [SerializeField]
+    List<GameObject> queue = new List<GameObject>();
     public int minRiders;
 
     public int riderCount
@@ -24,12 +27,31 @@ public class AttractionController : MonoBehaviour
 
     public float rideDuration = 6.0f;
 
+    public void AddRider(GameObject rider)
+    {
+        riders.Add(rider.gameObject);
+        rider.gameObject.SetActive(false);
+    }
+
+    public void AddQueue(GameObject rider)
+    {
+        queue.Add(rider.gameObject);
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag != "Meeple") { return; }
-        
-        riders.Add(other.gameObject);
-        other.gameObject.SetActive(false);
+        if (riders.Contains(other.gameObject)) { return; } // don't add existing riders
+        if (queue.Contains(other.gameObject)) { return; } // don't add existing riders
+
+        if(riderCount < minRiders)
+        {
+            AddRider(other.gameObject);
+        }
+        else
+        {
+            AddQueue(other.gameObject);
+        }
 
         OnRiderEntered.Invoke();
 
@@ -43,9 +65,10 @@ public class AttractionController : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Meeple") { return; }
+        if (!other.gameObject.activeSelf) { return; }
         
         riders.Remove(other.gameObject);
+        queue.Remove(other.gameObject);
     }
 
     IEnumerator DoRide(float duration)
@@ -59,6 +82,14 @@ public class AttractionController : MonoBehaviour
             rider.SetActive(true);
         }
 
-        riders.Clear();
+        // try to source more riders
+        // exit when...
+        //  QUEUE is exhausted
+        //  CAPACITY is met
+        while(queue.Count > 0 && riderCount < minRiders)
+        {
+            AddRider(queue[0]);
+            queue.Remove(queue[0]);
+        }
     }
 }
