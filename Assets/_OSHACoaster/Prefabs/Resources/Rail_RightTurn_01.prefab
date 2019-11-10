@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8491368374097774272}
   - component: {fileID: 615973021703388406}
   - component: {fileID: 6607037218878996495}
+  - component: {fileID: 6893833111712531145}
   m_Layer: 0
   m_Name: Rail_RightTurn_01
   m_TagString: Untagged
@@ -80,3 +81,15 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6893833111712531145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4867334931124286675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4b91f3d0c0c064ab0a6ac835fac9a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

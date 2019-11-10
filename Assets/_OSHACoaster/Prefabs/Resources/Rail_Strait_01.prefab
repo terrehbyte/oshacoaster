@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 466313538858918145}
   - component: {fileID: 8873123769404300087}
   - component: {fileID: 2891067304049698766}
+  - component: {fileID: -3210563016995973313}
   m_Layer: 0
   m_Name: Rail_Strait_01
   m_TagString: Untagged
@@ -82,3 +83,15 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-3210563016995973313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3468884872132743954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4b91f3d0c0c064ab0a6ac835fac9a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5711206080021556903}
   - component: {fileID: 3609988133429662865}
   - component: {fileID: 7000221647843666024}
+  - component: {fileID: 3675879175763998572}
   m_Layer: 0
   m_Name: Rail_Incline_01
   m_TagString: Untagged
@@ -81,6 +82,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3675879175763998572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8726039233504648372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4b91f3d0c0c064ab0a6ac835fac9a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4475508310141566892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88,11 +101,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5711206080021556903}
     m_Modifications:
-    - target: {fileID: 8538469319449396087, guid: 26da30053df589b47a60c477d9ac6e29,
-        type: 3}
-      propertyPath: m_Name
-      value: Place_Object2_SFX
-      objectReference: {fileID: 0}
     - target: {fileID: 2999929947618610976, guid: 26da30053df589b47a60c477d9ac6e29,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -147,6 +155,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8538469319449396087, guid: 26da30053df589b47a60c477d9ac6e29,
+        type: 3}
+      propertyPath: m_Name
+      value: Place_Object2_SFX
       objectReference: {fileID: 0}
     - target: {fileID: 2145087832432073520, guid: 26da30053df589b47a60c477d9ac6e29,
         type: 3}
