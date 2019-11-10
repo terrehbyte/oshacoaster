@@ -5,21 +5,23 @@ using UnityEngine;
 public class DesignMusicPlaylist : MonoBehaviour
 {
     public AudioClip[] designModeMusic;
+    public AudioClip[] playModeMusic;
     public AudioSource audioSource;
+    public bool isMode;
 
     public void ModeChange(bool isToggleOn)
     {
         //bool isToggleOn = _bool;
-
+        isMode = isToggleOn;
         if(isToggleOn == true)
         {
-            audioSource.clip = designModeMusic[2];
+            audioSource.clip = GetRandomPlay();
             audioSource.Play();
         }
         
         if(isToggleOn == false)
         {
-            audioSource.clip = GetRandomClip();
+            audioSource.clip = GetRandomDesign();
             audioSource.Play();
         }
     }
@@ -32,7 +34,12 @@ public class DesignMusicPlaylist : MonoBehaviour
         audioSource.loop = false;
     }
 
-    private AudioClip GetRandomClip()
+    private AudioClip GetRandomPlay()
+    {
+        return playModeMusic[Random.Range(0, playModeMusic.Length - 1)];
+    }
+
+    private AudioClip GetRandomDesign()
     {
         return designModeMusic[Random.Range(0, designModeMusic.Length-1)];
     }
@@ -40,10 +47,17 @@ public class DesignMusicPlaylist : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying && isMode == false)
         {
-            audioSource.clip = GetRandomClip();
+            audioSource.clip = GetRandomDesign();
             audioSource.Play();
         }
+
+        if (!audioSource.isPlaying && isMode == true)
+        {
+            audioSource.clip = GetRandomPlay();
+            audioSource.Play();
+        }
+
     }
 }
