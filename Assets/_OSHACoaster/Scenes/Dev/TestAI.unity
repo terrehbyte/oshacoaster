@@ -752,7 +752,7 @@ PrefabInstance:
     - target: {fileID: 4523930140304750289, guid: 234bf170eb5177e48b63293073416dcf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.19999994
+      value: -0.1999999
       objectReference: {fileID: 0}
     - target: {fileID: 4523930140304750289, guid: 234bf170eb5177e48b63293073416dcf,
         type: 3}
@@ -819,6 +819,12 @@ PrefabInstance:
       propertyPath: m_PlayAutomatically
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6256586906067804787, guid: 234bf170eb5177e48b63293073416dcf,
+        type: 3}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 4a97059c81a392a46a53bb343e90c44a, type: 2}
     m_RemovedComponents:
     - {fileID: 8296172669197884076, guid: 234bf170eb5177e48b63293073416dcf, type: 3}
+    - {fileID: 6256586906067804787, guid: 234bf170eb5177e48b63293073416dcf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 234bf170eb5177e48b63293073416dcf, type: 3}

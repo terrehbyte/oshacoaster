@@ -8,6 +8,10 @@ public class RailConfiguration : MonoBehaviour
 
     void Start()
     {
+        if(!GamePlay.grid.CheckWithinBounds(GetTilePosition()))
+        {
+            enabled = false; return;
+        }
         var cons = GamePlay.grid.GetCellData(GetTilePosition()).connections;
 
         foreach(var con in cons)
