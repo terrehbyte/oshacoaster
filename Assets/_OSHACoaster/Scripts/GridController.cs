@@ -91,6 +91,12 @@ public class GridController : MonoBehaviour
         return CheckWithinBounds(tileLocation) && !CheckOccupied(tileLocation);
     }
 
+    public bool CheckBuildEligible(Vector3Int tileLocation, BuildTile tile)
+    {
+        if(!CheckWithinBounds(tileLocation)) { return false; }
+        return (tile.tileType == BuildTile.TileTypes.NONE) || !CheckOccupied(tileLocation);
+    }
+
     // Returns the position of a tile in world space
     // This represents the bottom-left corner of the tile
     public Vector3 GetWorldLocation(Vector3Int worldTileLocation)
