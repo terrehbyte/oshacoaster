@@ -147,6 +147,7 @@ public class StockList : MonoBehaviour
 
         PreviewTemp=   Instantiate(Resources.Load(Bi.prefab) as GameObject, PreviewParent.transform);
         PreviewTemp.transform.localPosition = Vector3.zero;
+        RecursivelyTag(PreviewTemp.transform, "Untagged");
         PreviewTemp.layer = SaveLayer;
         for (int i = 0; i < PreviewTemp.transform.childCount;i++)
         
@@ -155,6 +156,18 @@ public class StockList : MonoBehaviour
         PreviewTemp.AddComponent<BasicRotation>();
           }
     BaseItem CurrentItem;
+
+    void RecursivelyTag(Transform target, string tag)
+    {
+        target.tag = tag;
+        int children = target.transform.childCount;
+
+        for (int i = 0; i < children; ++i)
+        {
+            RecursivelyTag(target.transform.GetChild(i), tag);
+        }
+    }
+
     public void CloseDetails()
     {
         detailsPane.DOFade(0, .3f);
