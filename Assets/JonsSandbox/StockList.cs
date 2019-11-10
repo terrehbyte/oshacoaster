@@ -112,9 +112,10 @@ public class StockList : MonoBehaviour
                BuildTile. TileConnections[] baseConnections = new BuildTile. TileConnections[CurrentItem.connections.Length];
                 //Decode connections.
                 int r = -1;
+                string cons = CurrentItem.connections.ToUpper();
                 for(int i=0;i<CurrentItem.connections.Length;i++)
                 {
-                    switch (CurrentItem.connections[i])
+                    switch (cons[i])
                     {
                         case 'N':
                             r = 0;
