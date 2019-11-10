@@ -20,6 +20,7 @@ public class RailCarController : MonoBehaviour
     public Rigidbody rbody;
 
     public float heightOffset = 0.5f;
+    public BuildTile.TileConnections currentDirection;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class RailCarController : MonoBehaviour
         {
             currentRail = cellObj.GetComponent<RailConfiguration>();
             transform.forward = currentRail.transform.forward;
+            currentDirection = GridController.GetDirectionFromRotationInt(GamePlay.grid.GetCellData(GamePlay.grid.GetTileLocation(transform.position)).rotations);
         }
     }
 
@@ -38,6 +40,7 @@ public class RailCarController : MonoBehaviour
     {
         return GamePlay.grid.GetCellData(tilePosition);
     }
+
 
     void Update()
     {
@@ -54,13 +57,21 @@ public class RailCarController : MonoBehaviour
 
         while(railProgress >= 1.0f)
         {
-            // update tile position
-            currentRail = currentRail.nextRailTilePosition;
+            // get next tile
+            var thing = currentDirection;
+            foreach(var route in currentRail.connections)
+            {
+                if (GridController.GetReciprocalConnection(route.Key) == thing) { continue; }
+                thing = route.Key;
+                break;
+            }
+            currentRail = currentRail.connections[thing];
 
             if (currentRail == null) { return; }
             prevTilePosition = tilePosition;
             tilePosition = currentRail.GetTilePosition();
             transform.forward = currentRail.transform.forward;
+            currentDirection = thing;
 
             railProgress -= 1.0f;
         }

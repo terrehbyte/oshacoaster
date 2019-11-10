@@ -17,6 +17,7 @@ public class BuildTile : ScriptableObject
 
     public enum TileConnections
     {
+        NONE = -1,
         NORTH = 0,
         EAST = 1,
         SOUTH = 2,
@@ -28,6 +29,11 @@ public class BuildTile : ScriptableObject
     public TileConnections[] baseConnections = new TileConnections[0];
     public Mesh buildMesh;
     public GameObject buildPrefab;
+
+    public static TileConnections GetInvertedConnection(TileConnections con)
+    {
+        return (BuildTile.TileConnections)(((int)con + 2) % 4);
+    }
 
     private void OnValidate()
     {
