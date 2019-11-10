@@ -15,7 +15,12 @@ public class RailCarController : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody>();
         tilePosition = GamePlay.grid.GetTileLocation(transform.position);
-        currentRail = GamePlay.grid.GetCellData(GamePlay.grid.GetTileLocation(transform.position)).cellObject.GetComponent<RailConfiguration>();
+
+        var cellObj = GamePlay.grid.GetCellData(GamePlay.grid.GetTileLocation(transform.position)).cellObject;
+        if (cellObj != null)
+        {
+            currentRail = cellObj.GetComponent<RailConfiguration>();
+        }
     }
 
     GridCell GetCurrentCell()
@@ -25,6 +30,13 @@ public class RailCarController : MonoBehaviour
 
     void Update()
     {
+        if (currentRail == null)
+        {
+            enabled = false;
+            rbody.isKinematic = false;
+            return;
+        }
+
         transform.position = GamePlay.grid.GetWorldLocation(tilePosition);
         railProgress += railSpeed * Time.deltaTime;
 
@@ -32,7 +44,11 @@ public class RailCarController : MonoBehaviour
         {
             // update tile position
             currentRail = currentRail.nextRailTilePosition;
+
+            if (currentRail == null) { return; }
             tilePosition = currentRail.GetTilePosition();
+
+            railProgress = 0.0f;
         }
     }
 }
