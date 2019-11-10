@@ -128,7 +128,6 @@ public class DesignController : MonoBehaviour
     {
         buildPlane = new Plane(Vector3.up, 0);
         tilePreviewTransform.localScale = new Vector3(grid.tileSize, 0.1f, grid.tileSize);
-        BuildCandidateIndex = 0;
 
         for (int i = 0; i < _buildCandidates.Count; ++i)
         {
@@ -148,6 +147,11 @@ public class DesignController : MonoBehaviour
         Debug.DrawRay(buildHit, Vector3.up * 10.0f, Color.red, 0.0f);
         Debug.DrawRay(buildLoc, Vector3.up * 5.0f, Color.green, 0.0f);
         lastBuildHit = buildHit;
+
+        if(BuildCandidateIndex < 0 || BuildCandidateIndex >= _buildCandidates.Count)
+        {
+            return;
+        }
 
         bool buildDoable = grid.CheckBuildEligible(tileLoc, CurrentBuildCandidate);
         Material previewMaterial = buildDoable ? previewValidMaterial : previewInvalidMaterial;

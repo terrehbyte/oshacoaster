@@ -160,9 +160,7 @@ MonoBehaviour:
   gridTransform: {fileID: 4021544735321988039}
   grid: {fileID: 4021544735321988038}
   targetCamera: {fileID: 0}
-  _buildCandidates:
-  - {fileID: 11400000, guid: 3a832b30e27566a449ca3ba5112338c0, type: 2}
-  - {fileID: 11400000, guid: 72bd9f462c31e9444b2fe730c542710f, type: 2}
+  _buildCandidates: []
   previewTransform: {fileID: 4021544735146730314}
   previewMeshFilter: {fileID: 4021544735146730316}
   previewMeshRenderer: {fileID: 4021544735146730317}
