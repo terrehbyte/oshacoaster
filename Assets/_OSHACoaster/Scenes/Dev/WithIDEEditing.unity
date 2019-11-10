@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 396691831}
   - component: {fileID: 396691830}
   - component: {fileID: 396691832}
+  - component: {fileID: 396691833}
   m_Layer: 0
   m_Name: Gamejam Death Tycoon variation - Charles Thiollier 1
   m_TagString: Untagged
@@ -223,11 +224,11 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396691829}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7357721029456973252, guid: 48c7dc9a53790694cb6f53b904653a83,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: a04cb9cac7d19db4590faac7c00974f1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 319681902ad398c489fef4e5d8a1dadf, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -339,6 +340,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &396691833
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396691829}
+  m_Enabled: 1
 --- !u!1 &785001338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,8 +1247,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2019687244}
   - component: {fileID: 2019687243}
+  - component: {fileID: 2019687245}
   m_Layer: 0
-  m_Name: AudioManager
+  m_Name: DesignMusicManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1267,6 +1277,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2019687245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019687242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c537e2bba0c82469b79611563adabb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designModeMusic:
+  - {fileID: 8300000, guid: 319681902ad398c489fef4e5d8a1dadf, type: 3}
+  - {fileID: 8300000, guid: 938eba255500c4947b25fba0bb90a0ae, type: 3}
 --- !u!1001 &4088217585096605825
 PrefabInstance:
   m_ObjectHideFlags: 0
