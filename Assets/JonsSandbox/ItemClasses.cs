@@ -28,6 +28,7 @@ public class BaseItem {
     public int maxspeed { get; set; }
     public int qtyInStock { get; set; }
 
+    public int dangerContribution { get; set; }
     public string connections { get; set; }
     public BuildTile.TileTypes AssetType = BuildTile.TileTypes.SCENARY;
 

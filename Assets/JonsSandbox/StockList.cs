@@ -146,6 +146,7 @@ public class StockList : MonoBehaviour
         Destroy(PreviewTemp);
 
         PreviewTemp=   Instantiate(Resources.Load(Bi.prefab) as GameObject, PreviewParent.transform);
+        PreviewTemp.tag = "Untagged";
         PreviewTemp.transform.localPosition = Vector3.zero;
         PreviewTemp.layer = SaveLayer;
         for (int i = 0; i < PreviewTemp.transform.childCount;i++)
@@ -201,6 +202,7 @@ public class StockList : MonoBehaviour
                 bt.tileType = CurrentItem.AssetType;// == AssetTypes.TRACK ? BuildTile.TileTypes.RAIL : BuildTile.TileTypes.SCENARY;
                 CurrentItem.qtyInStock = 1;
 
+                bt.dangerContribution = CurrentItem.dangerContribution>5?CurrentItem.dangerContribution:5;
                 if (bt.tileType == BuildTile.TileTypes.RAIL)
                 {
                     BuildTile.TileConnections[] baseConnections = new BuildTile.TileConnections[CurrentItem.connections.Length];

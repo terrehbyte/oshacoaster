@@ -10,6 +10,8 @@ public class GamePlay : Object
     public static int totalKillsAllTime;
     public static int killsThisSession;
     public static int casualtiesThisSession;
+    public static int currentDangerLevel = 0;
+
     public static  Dictionary<string,BaseItem> inventory;
     public static GridController grid;
     //TOOD: creat the datastructures to hold the tilemap data & placement of built items.

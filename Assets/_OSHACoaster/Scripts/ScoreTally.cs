@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ScoreTally : MonoBehaviour
 {
+    public bool Casualties = true;
     public float desiredScore = 9999;
     public float tallyTime = 10;
     public TMPro.TextMeshProUGUI myTmp;
@@ -14,8 +15,13 @@ public class ScoreTally : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Casualties)
+            desiredScore = GamePlay.casualtiesThisSession;
+        else
+            desiredScore = GamePlay.killsThisSession;
         myTmp = GetComponent<TMPro.TextMeshProUGUI>();
         temp = 0;
+        desiredScore = 1000;
     }
 
     // Update is called once per frame
