@@ -24,4 +24,18 @@ public class AdditiveLoad : MonoBehaviour
             SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
         }
     }
+
+#if UNITY_EDITOR
+
+    [UnityEditor.MenuItem("Scenes/Reload Scene")]
+    public static void ReloadScene()
+    {
+        if (Application.isPlaying) { return; }
+
+        if (Application.isEditor)
+        {
+            UnityEditor.SceneManagement.EditorSceneManager.OpenScene(UnityEditor.SceneManagement.EditorSceneManager.GetActiveScene().path);
+        }
+    }
+#endif
 }
