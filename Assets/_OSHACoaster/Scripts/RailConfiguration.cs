@@ -6,6 +6,8 @@ public class RailConfiguration : MonoBehaviour
 {
     public RailConfiguration nextRailTilePosition;
 
+    //public Dictionary<BuildTile.TileConnections, RailConfiguration> connections;
+
     public Vector3Int GetTilePosition()
     {
         return GamePlay.grid.GetTileLocation(transform.position);

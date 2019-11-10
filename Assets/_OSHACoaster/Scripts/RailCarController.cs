@@ -5,11 +5,21 @@ using UnityEngine;
 public class RailCarController : MonoBehaviour
 {
     public RailConfiguration currentRail;
-    public float railSpeed = 0.5f;
+    public float railSpeed = 20f;
     public float railProgress;
 
+    public Vector3Int prevTilePosition;
     public Vector3Int tilePosition;
+    public Vector3 tileVelocity
+    {
+        get
+        {
+            return ((Vector3)tilePosition - (Vector3)prevTilePosition).normalized * railSpeed;
+        }
+    }
     public Rigidbody rbody;
+
+    public float heightOffset = 0.5f;
 
     void Start()
     {
@@ -20,6 +30,7 @@ public class RailCarController : MonoBehaviour
         if (cellObj != null)
         {
             currentRail = cellObj.GetComponent<RailConfiguration>();
+            transform.forward = currentRail.transform.forward;
         }
     }
 
@@ -34,21 +45,24 @@ public class RailCarController : MonoBehaviour
         {
             enabled = false;
             rbody.isKinematic = false;
+            rbody.AddForce(tileVelocity + Vector3.up * 5.0f, ForceMode.Impulse);
             return;
         }
 
-        transform.position = GamePlay.grid.GetWorldLocation(tilePosition);
+        transform.position = GamePlay.grid.GetInstantiationLocation(tilePosition) + Vector3.up * heightOffset;
         railProgress += railSpeed * Time.deltaTime;
 
-        if(railProgress >= 1.0f)
+        while(railProgress >= 1.0f)
         {
             // update tile position
             currentRail = currentRail.nextRailTilePosition;
 
             if (currentRail == null) { return; }
+            prevTilePosition = tilePosition;
             tilePosition = currentRail.GetTilePosition();
+            transform.forward = currentRail.transform.forward;
 
-            railProgress = 0.0f;
+            railProgress -= 1.0f;
         }
     }
 }
