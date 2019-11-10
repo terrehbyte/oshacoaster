@@ -29,6 +29,7 @@ public class BuildTile : ScriptableObject
     public TileConnections[] baseConnections = new TileConnections[0];
     public Mesh buildMesh;
     public GameObject buildPrefab;
+    public int dangerContribution = 10;
 
     public static TileConnections GetInvertedConnection(TileConnections con)
     {

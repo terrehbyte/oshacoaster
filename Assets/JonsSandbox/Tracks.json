@@ -45,7 +45,7 @@
         "quality": 0,
         "maxspeed": 0,
         "qtyInStock": 1,
-        "connections": "NESW"
+        "connections": ""
     },
     {
         "AssetType": 0,
@@ -54,6 +54,18 @@
         "prefab": "LowPolyCart_01",
         "purchasecost": 20,
         "maintcost": 5,
+        "quality": 0,
+        "maxspeed": 0,
+        "qtyInStock": 0,
+        "connections": null
+    },
+    {
+        "AssetType": 0,
+        "itemname": "Paid Meeple",
+        "desc": "A paid guest.",
+        "prefab": "Meeple",
+        "purchasecost": 100,
+        "maintcost": 0,
         "quality": 0,
         "maxspeed": 0,
         "qtyInStock": 0,

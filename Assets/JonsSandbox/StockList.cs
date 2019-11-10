@@ -146,7 +146,9 @@ public class StockList : MonoBehaviour
         Destroy(PreviewTemp);
 
         PreviewTemp=   Instantiate(Resources.Load(Bi.prefab) as GameObject, PreviewParent.transform);
+        PreviewTemp.tag = "Untagged";
         PreviewTemp.transform.localPosition = Vector3.zero;
+        RecursivelyTag(PreviewTemp.transform, "Untagged");
         PreviewTemp.layer = SaveLayer;
         for (int i = 0; i < PreviewTemp.transform.childCount;i++)
         
@@ -155,6 +157,18 @@ public class StockList : MonoBehaviour
         PreviewTemp.AddComponent<BasicRotation>();
           }
     BaseItem CurrentItem;
+
+    void RecursivelyTag(Transform target, string tag)
+    {
+        target.tag = tag;
+        int children = target.transform.childCount;
+
+        for (int i = 0; i < children; ++i)
+        {
+            RecursivelyTag(target.transform.GetChild(i), tag);
+        }
+    }
+
     public void CloseDetails()
     {
         detailsPane.DOFade(0, .3f);
@@ -201,6 +215,7 @@ public class StockList : MonoBehaviour
                 bt.tileType = CurrentItem.AssetType;// == AssetTypes.TRACK ? BuildTile.TileTypes.RAIL : BuildTile.TileTypes.SCENARY;
                 CurrentItem.qtyInStock = 1;
 
+                bt.dangerContribution = CurrentItem.dangerContribution>5?CurrentItem.dangerContribution:5;
                 if (bt.tileType == BuildTile.TileTypes.RAIL)
                 {
                     BuildTile.TileConnections[] baseConnections = new BuildTile.TileConnections[CurrentItem.connections.Length];

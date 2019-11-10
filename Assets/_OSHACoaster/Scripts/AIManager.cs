@@ -59,29 +59,35 @@ public class AIManager : MonoBehaviour
         yield return null;
         while (Running)
         {
-            for (int i = 0; i < MeepleCount; i++)
+            RefreshAvailableMeeeples();
+            RefreshAvailableTargets();
+
+            if (Meeples.Count > 1 || Targets.Count > 1)
             {
-                if (stepCounter++ > RefreshPopulationEverySteps)
-                {
-                    stepCounter = 0;
-                    RefreshAvailableMeeeples();
-                    RefreshAvailableTargets();
 
-                }
-                if (Meeples[i].gameObject.activeInHierarchy)
+                for (int i = 0; i < MeepleCount; i++)
                 {
-                    NavMeshAgent nma = Meeples[i].GetComponent<NavMeshAgent>();
-                    Animator Anim = Meeples[i].GetComponentInChildren<Animator>();
-                    float vel = nma.velocity.magnitude;
-                    Anim.SetFloat("Vel", vel);
-                    if (vel < IdleVelocity)
+                    if (stepCounter++ > RefreshPopulationEverySteps)
                     {
-                        nma.SetDestination(Targets[Random.Range(0, TargetCount)].transform.position);
-                    }
-                }
+                        stepCounter = 0;
 
-                yield return new WaitForSeconds(Random.Range(0, .25f));
+                    }
+                    if (Meeples[i].gameObject.activeInHierarchy)
+                    {
+                        NavMeshAgent nma = Meeples[i].GetComponent<NavMeshAgent>();
+                        Animator Anim = Meeples[i].GetComponentInChildren<Animator>();
+                        float vel = nma.velocity.magnitude;
+                        Anim.SetFloat("Vel", vel);
+                        if (vel < IdleVelocity)
+                        {
+                            nma.SetDestination(Targets[Random.Range(0, TargetCount)].transform.position);
+                        }
+                    }
+
+                    yield return new WaitForSeconds(Random.Range(0, .25f));
+                }
             }
+            yield return new WaitForSeconds(Random.Range(0, .25f));
         }
     }
 }
