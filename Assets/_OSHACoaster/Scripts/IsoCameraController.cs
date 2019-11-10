@@ -14,6 +14,9 @@ public class IsoCameraController : MonoBehaviour
     public float zoomMin = 30.0f;
     public float zoomMax = 100.0f;
 
+    public float orthoSizeMin = 5.0f;
+    public float orthoSizeMax = 20.0f;
+
     public float controlPitch = 30.0f;
     public float pitchMin = 10.0f;
     public float pitchMax = 80.0f;
@@ -58,8 +61,16 @@ public class IsoCameraController : MonoBehaviour
         Vector3 pMove = (targetCamera.transform.right * hMove +
                          Vector3.Cross(targetCamera.transform.right, Vector3.up) * vMove).normalized * cameraSpeed * Time.deltaTime;
 
-        targetCamera.fieldOfView = Mathf.Clamp(targetCamera.fieldOfView + zMove * zoomSpeed * Time.deltaTime, zoomMin, zoomMax);
         transform.Translate(pMove, Space.World);
+
+        if (!targetCamera.orthographic)
+        {
+            targetCamera.fieldOfView = Mathf.Clamp(targetCamera.fieldOfView + zMove * zoomSpeed * Time.deltaTime, zoomMin, zoomMax);
+        }
+        else
+        {
+            targetCamera.orthographicSize = Mathf.Clamp(targetCamera.orthographicSize + zMove * zoomSpeed * Time.deltaTime, orthoSizeMin, orthoSizeMax);
+        }
     }
 
     void Reset()
