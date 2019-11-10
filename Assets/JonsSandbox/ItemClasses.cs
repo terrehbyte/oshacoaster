@@ -35,6 +35,7 @@ public class BaseItem {
     public int maxspeed { get; set; }
     public int qtyInStock { get; set; }
 
+    public string connections { get; set; }
     public AssetTypes AssetType = AssetTypes.SCENERY;
 
 }

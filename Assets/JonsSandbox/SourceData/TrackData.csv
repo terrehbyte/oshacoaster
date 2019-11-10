@@ -1,9 +1,9 @@
-﻿itemname,desc,prefab,purchasecost,maintcost,quality,maxspeed
-Rail_Incline_01,Steep turn,Rail_Incline_01,20,18,10,5
-Rail_LeftTurn_01,Gentle Left Turn,Rail_LeftTurn_01,20,22,10,5
-Rail_RightTurn_01,Gentle Right Turn,Rail_RightTurn_01,20,26,10,5
-Rail_Strait_01,Straight Rail,Rail_Strait_01,20,30,10,5
-Rail_Support_Incline_01,Rail Support for Steep Turns,Rail_Support_Incline_01,20,34,10,5
-Rail_Support_LeftTurn_01,Rail Support for Left Turns,Rail_Support_LeftTurn_01,20,38,10,5
-Rail_Support_RightTurn_01,Rail Support for Right Turns,Rail_Support_RightTurn_01,20,42,10,5
-Rail_Support_Strait_01,Rail Supports for Straign runs,Rail_Support_Strait_01,20,46,10,5
+﻿itemname,desc,prefab,purchasecost,maintcost,quality,maxspeed,connections
+Rail_Incline_01,Steep turn,Rail_Incline_01,20,18,10,5,nesw
+Rail_LeftTurn_01,Gentle Left Turn,Rail_LeftTurn_01,20,22,10,5,nesw
+Rail_RightTurn_01,Gentle Right Turn,Rail_RightTurn_01,20,26,10,5,nesw
+Rail_Strait_01,Straight Rail,Rail_Strait_01,20,30,10,5,nesw
+Rail_Support_Incline_01,Rail Support for Steep Turns,Rail_Support_Incline_01,20,34,10,5,nesw
+Rail_Support_LeftTurn_01,Rail Support for Left Turns,Rail_Support_LeftTurn_01,20,38,10,5,nesw
+Rail_Support_RightTurn_01,Rail Support for Right Turns,Rail_Support_RightTurn_01,20,42,10,5,nesw
+Rail_Support_Strait_01,Rail Supports for Straign runs,Rail_Support_Strait_01,20,46,10,5,nesw
