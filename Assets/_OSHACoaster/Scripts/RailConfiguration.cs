@@ -4,9 +4,24 @@ using UnityEngine;
 
 public class RailConfiguration : MonoBehaviour
 {
-    public RailConfiguration nextRailTilePosition;
+    public Dictionary<BuildTile.TileConnections, RailConfiguration> connections = new Dictionary<BuildTile.TileConnections, RailConfiguration>();
 
-    //public Dictionary<BuildTile.TileConnections, RailConfiguration> connections;
+    void Start()
+    {
+        var cons = GamePlay.grid.GetCellData(GetTilePosition()).connections;
+
+        foreach(var con in cons)
+        {
+            try
+            {
+                connections.Add(con, null);
+            }
+            catch (System.ArgumentException ex)
+            {
+
+            }
+        }
+    }
 
     public Vector3Int GetTilePosition()
     {
@@ -15,8 +30,12 @@ public class RailConfiguration : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        if (nextRailTilePosition == null) { return; }
-        Gizmos.color = Color.white;
-        Gizmos.DrawLine(transform.position, nextRailTilePosition.transform.position);
+        if (connections == null) { return; }
+        Gizmos.color = Color.green;
+        foreach(var pair in connections)
+        {
+            if(pair.Value == null) continue;
+            Gizmos.DrawSphere(GamePlay.grid.GetInstantiationLocation(GetTilePosition()) + GamePlay.grid.GetConnectionOffset(pair.Key), 0.5f);
+        }
     }
 }

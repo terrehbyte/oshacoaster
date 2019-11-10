@@ -172,6 +172,11 @@ public class GridController : MonoBehaviour
         return offset * ((float)tileSize / 2.0f);
     }
 
+    public static BuildTile.TileConnections GetDirectionFromRotationInt(int rotation)
+    {
+        return (BuildTile.TileConnections)(((int)rotation));
+    }
+
     public GridCell GetCellData(Vector3Int worldTileLocation)
     {
         return gridCells[GetCellIndexFromTileLocation(worldTileLocation)];
@@ -245,10 +250,45 @@ public class GridController : MonoBehaviour
         List<Vector3Int> positions = new List<Vector3Int>();
         foreach(var con in cell.connections)
         {
-            positions.Add(tileLocation + GetConnectingTileOffset(con));
+            var candidate = tileLocation + GetConnectingTileOffset(con);
+            if (!CheckWithinBounds(candidate)) { continue; }
+            positions.Add(candidate);
         }
 
         return positions.ToArray();
+    }
+
+    public BuildTile.TileConnections GetReciprocalConnection(Vector3Int origin, Vector3Int dest)
+    {
+        var delta = origin - dest;
+
+        return GetConnectionFromDirection(delta);
+    }
+
+    public static BuildTile.TileConnections GetReciprocalConnection(BuildTile.TileConnections connection)
+    {
+        switch (connection)
+        {
+            case BuildTile.TileConnections.NORTH:
+                return BuildTile.TileConnections.SOUTH;
+            case BuildTile.TileConnections.EAST:
+                return BuildTile.TileConnections.WEST;
+            case BuildTile.TileConnections.SOUTH:
+                return BuildTile.TileConnections.NORTH;
+            case BuildTile.TileConnections.WEST:
+                return BuildTile.TileConnections.EAST;
+            default:
+                return BuildTile.TileConnections.NONE;
+        }
+    }
+
+    public BuildTile.TileConnections GetConnectionFromDirection(Vector3Int direction)
+    {
+        return (direction == new Vector3Int(0, 0, 1)) ? BuildTile.TileConnections.NORTH :
+               (direction == new Vector3Int(1, 0, 0)) ? BuildTile.TileConnections.EAST :
+               (direction == new Vector3Int(0, 0, -1)) ? BuildTile.TileConnections.SOUTH :
+               (direction == new Vector3Int(-1, 0, 0)) ? BuildTile.TileConnections.WEST :
+               BuildTile.TileConnections.NONE;
     }
 }
 

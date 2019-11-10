@@ -67,7 +67,7 @@ public class StockList : MonoBehaviour
         string localPath = UnityEditor.AssetDatabase.GetAssetPath(DefaultPrefab);
         localPath = localPath.Replace("defaultAss", tmp.prefab);
 
-       var modelRootGo = (GameObject)UnityEditor.AssetDatabase.LoadMainAssetAtPath(tgoPath);
+        var modelRootGo = (GameObject)UnityEditor.AssetDatabase.LoadMainAssetAtPath(tgoPath);
 
         GameObject instanceRoot = (GameObject)UnityEditor.PrefabUtility.InstantiatePrefab(modelRootGo);
         var variantRoot = UnityEditor.PrefabUtility.SaveAsPrefabAsset(instanceRoot, localPath);
