@@ -14,12 +14,19 @@ public class TrackEditor : MonoBehaviour
     public void Awake()
     {
         if (instance != null && instance != this)
+        {
+            Debug.LogWarning("Duplicate instance of TrackEditor found! Now deleting...");
             Destroy(gameObject);
+        }
 
         if (instance == null)
             instance = this;
 
-
+        Debug.Assert(directions != null, this);
+        foreach(var dir in directions)
+        {
+            Debug.Assert(dir != null, this);
+        }
 
     }
 

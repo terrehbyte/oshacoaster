@@ -6341,6 +6341,10 @@ GameObject:
   - component: {fileID: 8900513809524580733}
   - component: {fileID: 8900513809524580730}
   - component: {fileID: 8900513809524580731}
+<<<<<<< HEAD
+=======
+  - component: {fileID: 7859699222876710093}
+>>>>>>> 8570b0c074bef646e27a1f443e0e69e2f746718b
   - component: {fileID: 5426088735034919298}
   m_Layer: 5
   m_Name: btn_Buy
@@ -6471,6 +6475,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+<<<<<<< HEAD
+=======
+--- !u!114 &7859699222876710093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8900513809524580729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac8f2e5a30d0b4646a9e6cd29cd8bc0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> 8570b0c074bef646e27a1f443e0e69e2f746718b
 --- !u!82 &5426088735034919298
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8489,7 +8508,6 @@ GameObject:
   - component: {fileID: 1990054483067395529}
   - component: {fileID: 1465589176554629007}
   - component: {fileID: 2596176077470752959}
-  - component: {fileID: 755010726131275486}
   - component: {fileID: 5436328846541041281}
   m_Layer: 5
   m_Name: pbl_creator
@@ -8556,24 +8574,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &755010726131275486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9059946810891895641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61506a09385d29643821313515e40ebd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  directions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  ThumbnailGrabber: {fileID: 0}
 --- !u!114 &5436328846541041281
 MonoBehaviour:
   m_ObjectHideFlags: 0
