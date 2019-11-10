@@ -70,3 +70,6 @@ Assets/FMODStudioCache.asset
 
 # Office
 *~$*.*
+
+# OS X
+.DS_Store
