@@ -186,7 +186,7 @@ public class StockList : MonoBehaviour
         UnityEngine.Object.Destroy(texture);
 
         string path;
-        
+        #if UNITY_EDITOR
         path=UnityEditor.AssetDatabase.GetAssetPath(PreviewRender) + "_thumb.png";
        
         path=path.Replace("preview.renderTexture", CurrentItem.prefab);
@@ -199,7 +199,7 @@ public class StockList : MonoBehaviour
         dialogBounceFade.AppendInterval(5);
         dialogBounceFade.Append(fadeDialog.DOFade(0, .3f));
         dialogBounceFade.PlayForward();
-
+#endif
     }
     public void BuyItem(bool _cheatMode)
     {

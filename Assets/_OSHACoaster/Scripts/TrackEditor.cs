@@ -52,6 +52,8 @@ public class TrackEditor : MonoBehaviour
         if (directions[3].isOn)
             str += "W";
         StockList.instance.UpdateDirections(str);
+        #if UNITY_EDITOR
         StockList.instance.Save();
+        #endif
     }
 }
