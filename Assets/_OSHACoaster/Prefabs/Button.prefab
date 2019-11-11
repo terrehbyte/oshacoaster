@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assignedTile: {fileID: 0}
   designController: {fileID: 0}
+  button: {fileID: 2508847498289001719}
 --- !u!114 &6831545211484632857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,4 +235,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8f2e5a30d0b4646a9e6cd29cd8bc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buyButton: {fileID: 0}
