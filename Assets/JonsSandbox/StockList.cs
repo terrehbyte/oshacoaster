@@ -248,12 +248,21 @@ public class StockList : MonoBehaviour
                 }
 
                 bt.ForceValidate();
-                GamePlay.inventory.Add(CurrentItem.itemname, CurrentItem);
-                DesignController.instance.AddBuildTile(bt);
+                if (!GamePlay.inventory.ContainsKey(CurrentItem.itemname))
+                {
+                    GamePlay.inventory.Add(CurrentItem.itemname, CurrentItem);
+                
+                    DesignController.instance.AddBuildTile(bt);
+
+                    DesignController.instance.buttonsByName[CurrentItem.itemname].SetButtonState(true);
+                }
             }
             else
             {
                 incInventory(CurrentItem.itemname);
+
+                if(GamePlay.inventory[CurrentItem.itemname].qtyInStock > 0)
+                    DesignController.instance.buttonsByName[CurrentItem.itemname].SetButtonState(true);
             }
             GamePlay.coin -= !_cheatMode? CurrentItem.purchasecost:0;
             wallet.text = $"Currante Balance:{GamePlay.coin.ToString()}";
@@ -287,7 +296,9 @@ public class StockList : MonoBehaviour
     {
         if (GamePlay.inventory.ContainsKey(_name))
             GamePlay.inventory[_name].qtyInStock++;
-       
+
+        DesignController.instance.buttonsByName[_name].SetButtonState(GamePlay.inventory[_name].qtyInStock > 0);
+
     }
     public void decInvenctory(string _name)
     {

@@ -122,6 +122,9 @@ public class DesignController : MonoBehaviour
     [SerializeField]
     private RectTransform scrollableItemsContent;
 
+    public Dictionary<BuildTile, BuildTileSwitcher> buttons = new Dictionary<BuildTile, BuildTileSwitcher>();
+    public Dictionary<string, BuildTileSwitcher> buttonsByName = new Dictionary<string, BuildTileSwitcher>();
+
     public UnityEventBuildTile OnBuildCandidateChanged;
 
     void Start()
@@ -167,8 +170,15 @@ public class DesignController : MonoBehaviour
             previewTransform.rotation = placementRotation;
         }
 
-        if(Input.GetButtonDown("Fire1") && buildDoable)
+        if(Input.GetButtonDown("Fire1") && buildDoable && GamePlay.inventory[CurrentBuildCandidate.myName].qtyInStock > 0)
         {
+            GamePlay.inventory[CurrentBuildCandidate.myName].qtyInStock--;
+
+            if(GamePlay.inventory[CurrentBuildCandidate.myName].qtyInStock <= 0)
+            {
+                buttons[CurrentBuildCandidate].SetButtonState(false);
+            }
+
             var obj = Instantiate(CurrentBuildCandidate.buildPrefab, buildLoc, placementRotation);
             if (CurrentBuildCandidate.tileType != BuildTile.TileTypes.NONE)
             {
@@ -232,7 +242,10 @@ public class DesignController : MonoBehaviour
         switcher.assignedTile = candidate;
         switcher.GetComponentInChildren<UnityEngine.UI.Text>().text = candidate.myName;
         switcher.designController = this;
-        
+
+        buttons[tile] = switcher;
+        buttonsByName[tile.myName] = switcher;
+
         var switcherRect = switcher.GetComponent<RectTransform>();
         switcherRect.offsetMin = new Vector2(tileNumber * 150, -100);
         switcherRect.offsetMax = new Vector2((++tileNumber) * 150, 0);
