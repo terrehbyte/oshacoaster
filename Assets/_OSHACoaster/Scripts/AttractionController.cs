@@ -26,6 +26,7 @@ public class AttractionController : MonoBehaviour
     public UnityEvent OnRiderEntered;
 
     public float rideDuration = 6.0f;
+    public float moneyPerRider = 5.0f;
 
     public void AddRider(GameObject rider)
     {
@@ -73,6 +74,7 @@ public class AttractionController : MonoBehaviour
 
     IEnumerator DoRide(float duration)
     {
+        GamePlay.coin += (int)(moneyPerRider * riderCount);
         yield return new WaitForSeconds(duration);
 
         OnRideExit.Invoke();
