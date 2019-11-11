@@ -69,7 +69,7 @@
     "itemname": "Paid Meeple",
     "desc": "A paid guest.",
     "prefab": "Meeple",
-    "purchasecost": 100,
+    "purchasecost": 5,
     "maintcost": 0,
     "quality": 0,
     "maxspeed": 0,

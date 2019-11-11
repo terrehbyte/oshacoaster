@@ -723,7 +723,12 @@ PrefabInstance:
     - target: {fileID: 4021544736452567300, guid: e43ce3ac61add464f90f97dc7430e724,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4021544736452567300, guid: e43ce3ac61add464f90f97dc7430e724,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4089.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e43ce3ac61add464f90f97dc7430e724, type: 3}
@@ -1335,6 +1340,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4cc367692aa27dd4dbe7a1c0c182a869, type: 3}
   - {fileID: 8300000, guid: ee0eb0115714c0b4b849389d54808bfc, type: 3}
   audioSource: {fileID: 2019687246}
+  isMode: 0
 --- !u!82 &2019687246
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1449,6 +1455,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
+        type: 3}
+      propertyPath: PreviewParent
+      value: 
+      objectReference: {fileID: 1372501539}
+    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
+        type: 3}
+      propertyPath: PreviewTemp
+      value: 
+      objectReference: {fileID: 1948405951}
+    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
+        type: 3}
+      propertyPath: StoreFrontHierarchy
+      value: 
+      objectReference: {fileID: 1433799480}
     - target: {fileID: 4843830429317681749, guid: 636df811438b1e5408cec535300a6cba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1554,21 +1575,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
-        type: 3}
-      propertyPath: PreviewParent
-      value: 
-      objectReference: {fileID: 1372501539}
-    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
-        type: 3}
-      propertyPath: PreviewTemp
-      value: 
-      objectReference: {fileID: 1948405951}
-    - target: {fileID: 4843830429384035771, guid: 636df811438b1e5408cec535300a6cba,
-        type: 3}
-      propertyPath: StoreFrontHierarchy
-      value: 
-      objectReference: {fileID: 1433799480}
     - target: {fileID: 4843830429382575876, guid: 636df811438b1e5408cec535300a6cba,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2074,11 +2080,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4843830430396549914, guid: 636df811438b1e5408cec535300a6cba,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4843830429532505655, guid: 636df811438b1e5408cec535300a6cba,
         type: 3}
       propertyPath: m_Sprite
@@ -2169,6 +2170,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4843830430396549914, guid: 636df811438b1e5408cec535300a6cba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3658632065052787523, guid: 636df811438b1e5408cec535300a6cba, type: 3}
