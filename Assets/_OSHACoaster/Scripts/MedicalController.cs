@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [SelectionBase]
-public class AttractionController : MonoBehaviour
+public class MedicalController : MonoBehaviour
 {
     [SerializeField]
     List<GameObject> riders = new List<GameObject>();
     [SerializeField]
     List<GameObject> queue = new List<GameObject>();
-    public int minRiders;
+    public int minRiders = 1;
 
     public int riderCount
     {
@@ -27,8 +27,6 @@ public class AttractionController : MonoBehaviour
 
     public float rideDuration = 6.0f;
     public float moneyPerRider = 5.0f;
-
-    public float chanceToInjury = 0.5f;
 
     public void AddRider(GameObject rider)
     {
@@ -83,11 +81,7 @@ public class AttractionController : MonoBehaviour
 
         foreach(var rider in riders)
         {
-            float rng = Random.Range(0, 1.0f);
-            if(rng < chanceToInjury)
-            {
-                rider.GetComponent<Meeple>().healthy = false;
-            }
+            rider.GetComponent<Meeple>().healthy = true;
             rider.SetActive(true);
         }
 

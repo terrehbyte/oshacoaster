@@ -31,6 +31,7 @@ GameObject:
   - component: {fileID: 5964628261637944550}
   - component: {fileID: -8737658128888446054}
   - component: {fileID: 8696501018278264714}
+  - component: {fileID: -6553661492128807777}
   m_Layer: 0
   m_Name: Meeple
   m_TagString: Meeple
@@ -106,6 +107,19 @@ CapsuleCollider:
   m_Height: 1.77
   m_Direction: 1
   m_Center: {x: -0.15, y: 0.48000002, z: 0.02564621}
+--- !u!114 &-6553661492128807777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5964628261637944553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 750e4e734e4579a44853392db454d056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthy: 1
 --- !u!1001 &2987033883972766775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -221,11 +235,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5964628261637944551}
     m_Modifications:
-    - target: {fileID: 3431846890427299566, guid: 01f8f39355f64fa42b879fe03236c184,
-        type: 3}
-      propertyPath: m_Name
-      value: Meep_SFX
-      objectReference: {fileID: 0}
     - target: {fileID: 8814252398442102937, guid: 01f8f39355f64fa42b879fe03236c184,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -280,6 +289,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3431846890427299566, guid: 01f8f39355f64fa42b879fe03236c184,
+        type: 3}
+      propertyPath: m_Name
+      value: Meep_SFX
       objectReference: {fileID: 0}
     - target: {fileID: 2623829968327467661, guid: 01f8f39355f64fa42b879fe03236c184,
         type: 3}

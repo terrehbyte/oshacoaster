@@ -13,10 +13,12 @@ public class AIManager : MonoBehaviour
     public int RefreshPopulationEverySteps;
     public List<GameObject> Targets = new List<GameObject>();
     public List<GameObject> Meeples = new List<GameObject>();
+    public List<GameObject> Medicals = new List<GameObject>();
     int TargetCount;
     int MeepleCount;
     public static AIManager instance;
-  
+    private int MedicalCount;
+
     void Start()
     {
     }
@@ -39,6 +41,15 @@ public class AIManager : MonoBehaviour
         MeepleCount = Meeples.Count;
     }
 
+    public void RefreshAvailableMedicals()
+    {
+        GameObject[] tmpMeeples = GameObject.FindGameObjectsWithTag("Medical");
+        foreach (GameObject tgo in tmpMeeples)
+            if (!Medicals.Contains(tgo))
+                Medicals.Add(tgo);
+        MedicalCount = Medicals.Count;
+    }
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -48,8 +59,8 @@ public class AIManager : MonoBehaviour
 
         RefreshAvailableTargets();
         RefreshAvailableMeeeples();
+        RefreshAvailableMedicals();
         StartCoroutine(MonitorAI());
-        
     }
 
    
@@ -61,6 +72,7 @@ public class AIManager : MonoBehaviour
         {
             RefreshAvailableMeeeples();
             RefreshAvailableTargets();
+            RefreshAvailableMedicals();
 
             if (Meeples.Count > 0 && Targets.Count > 0)
             {
@@ -74,13 +86,23 @@ public class AIManager : MonoBehaviour
                     }
                     if (Meeples[i].gameObject.activeInHierarchy)
                     {
+                        var meep = Meeples[i].GetComponent<Meeple>();
+
                         NavMeshAgent nma = Meeples[i].GetComponent<NavMeshAgent>();
                         Animator Anim = Meeples[i].GetComponentInChildren<Animator>();
                         float vel = nma.velocity.magnitude;
                         Anim.SetFloat("Vel", vel);
                         if (vel < IdleVelocity)
                         {
-                            nma.SetDestination(Targets[Random.Range(0, TargetCount)].transform.position);
+                            if(meep.healthy)
+                                nma.SetDestination(Targets[Random.Range(0, TargetCount)].transform.position);
+                            else
+                            {
+                                if(MedicalCount > 0)
+                                    nma.SetDestination(Medicals[Random.Range(0, MedicalCount)].transform.position);
+                                else
+                                    Debug.Log("NO MEDICAL OH NOOOO");
+                            }
                         }
                     }
 
