@@ -310,6 +310,31 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1671843045856718935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366076135006144686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95bfab084209c4b4f9caac5c3af2f5ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riders: []
+  queue: []
+  minRiders: 6
+  OnRideBegins:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRideExit:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRiderEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  rideDuration: 6
 --- !u!1 &9091345089630303304
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +513,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c7c7285f15a04e8e840326c62b54346, type: 3}
+--- !u!1 &366076135006144686 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 9c7c7285f15a04e8e840326c62b54346,
+    type: 3}
+  m_PrefabInstance: {fileID: 8517852088456532391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3697395468605389501 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 9c7c7285f15a04e8e840326c62b54346,

@@ -128,5 +128,70 @@
     "qtyInStock": 0,
     "dangerContribution": 0,
     "connections": null
+  },
+  {
+    "AssetType": 3,
+    "itemname": "Pointy Pointy ",
+    "desc": "Makes you drop",
+    "prefab": "HelixDrop_01",
+    "purchasecost": 175,
+    "maintcost": 20,
+    "quality": 0,
+    "maxspeed": 0,
+    "qtyInStock": 0,
+    "dangerContribution": 12,
+    "connections": null
+  },
+  {
+    "AssetType": 3,
+    "itemname": "Carousel",
+    "desc": "No one over 30 years old allowed, ever!",
+    "prefab": "Carousel",
+    "purchasecost": 300,
+    "maintcost": 20,
+    "quality": 0,
+    "maxspeed": 0,
+    "qtyInStock": 0,
+    "dangerContribution": 12,
+    "connections": null
+  },
+  {
+    "AssetType": 3,
+    "itemname": "Brain Loop",
+    "desc": "Messes with your head!",
+    "prefab": "BrainScrambler_01",
+    "purchasecost": 200,
+    "maintcost": 20,
+    "quality": 0,
+    "maxspeed": 0,
+    "qtyInStock": 0,
+    "dangerContribution": 12,
+    "connections": null
+  },
+  {
+    "AssetType": 3,
+    "itemname": "Portapotty",
+    "desc": "Biohazards be warned",
+    "prefab": "PortaPotty_01",
+    "purchasecost": 200,
+    "maintcost": 20,
+    "quality": 0,
+    "maxspeed": 0,
+    "qtyInStock": 0,
+    "dangerContribution": 12,
+    "connections": null
+  },
+  {
+    "AssetType": 3,
+    "itemname": "Leap of Faith",
+    "desc": "Watch your back",
+    "prefab": "LeapOfFaith_01",
+    "purchasecost": 200,
+    "maintcost": 20,
+    "quality": 0,
+    "maxspeed": 0,
+    "qtyInStock": 0,
+    "dangerContribution": 12,
+    "connections": null
   }
 ]
