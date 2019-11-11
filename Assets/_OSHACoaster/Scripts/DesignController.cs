@@ -170,7 +170,7 @@ public class DesignController : MonoBehaviour
             previewTransform.rotation = placementRotation;
         }
 
-        if(Input.GetButtonDown("Fire1") && buildDoable && GamePlay.inventory[CurrentBuildCandidate.myName].qtyInStock > 0)
+        if(!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject   () &&    Input.GetButtonDown("Fire1") && buildDoable && GamePlay.inventory[CurrentBuildCandidate.myName].qtyInStock > 0)
         {
             GamePlay.inventory[CurrentBuildCandidate.myName].qtyInStock--;
 
