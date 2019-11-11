@@ -249,7 +249,7 @@ public class DesignController : MonoBehaviour
         var switcherRect = switcher.GetComponent<RectTransform>();
         switcherRect.offsetMin = new Vector2(tileNumber * 150, -100);
         switcherRect.offsetMax = new Vector2((++tileNumber) * 150, 0);
-        scrollableItemsContent.offsetMax = new Vector2(_buildCandidates.Count * 150, scrollableItemsContent.offsetMax.y);
+        scrollableItemsContent.offsetMax = new Vector2((_buildCandidates.Count+00) * 175, scrollableItemsContent.offsetMax.y);
     }
 
     // Adds a new BuildTile to the build menu + performs layout
