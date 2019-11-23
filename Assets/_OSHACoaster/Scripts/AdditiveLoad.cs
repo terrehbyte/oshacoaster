@@ -25,6 +25,14 @@ public class AdditiveLoad : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if(Input.GetKey(KeyCode.F5))
+        {
+            SceneManager.LoadScene("Splash-Menu", LoadSceneMode.Single);
+        }
+    }
+
 #if UNITY_EDITOR
 
     [UnityEditor.MenuItem("Scenes/Reload Scene")]

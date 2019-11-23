@@ -186,7 +186,7 @@ public class StockList : MonoBehaviour
         UnityEngine.Object.Destroy(texture);
 
         string path;
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         path=UnityEditor.AssetDatabase.GetAssetPath(PreviewRender) + "_thumb.png";
        
         path=path.Replace("preview.renderTexture", CurrentItem.prefab);

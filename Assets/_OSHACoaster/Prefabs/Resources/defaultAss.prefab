@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8007865941108282375}
   - component: {fileID: 1331553774132162097}
   - component: {fileID: 4703491326743777992}
-  m_Layer: 0
-  m_Name: Rail_Support_Strait_01
+  m_Layer: 10
+  m_Name: defaultAss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

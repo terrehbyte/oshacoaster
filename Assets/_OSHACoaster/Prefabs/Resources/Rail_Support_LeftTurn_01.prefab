@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3064303695195116548}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: transform43
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6733344678283157057}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pasted__pasted__pasted__pasted__pasted__pCylinder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 19116410572126881}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pasted__pasted__pasted__pasted__pCylinder7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3485235184568872428}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pasted__pasted__pasted__pasted__pasted__pCylinder6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5177792381298785063}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: transform44
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1582975658488266863}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pasted__pasted__pasted__pasted__pasted__pasted__pCylinder4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9117135434809313960}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: transform48
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 4204347485186656930}
   - component: {fileID: 2522061939580329846}
   - component: {fileID: 5312663842500745897}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LeftTurn_Support
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5632428729771860086}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pasted__pasted__pasted__pasted__pasted__pasted__pCylinder3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3454550573454011011}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: transform46
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9111424522832529569}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: transform41
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8957190805893236699}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pasted__pasted__pasted__pasted__pasted__pasted__pCylinder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 775055340486938759}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pasted__pasted__pasted__pasted__pasted__pCylinder3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8945747747910102730}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pasted__pasted__pasted__pasted__pasted__pasted__pasted__pCylinder2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5350506374939710331}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: transform45
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +522,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8001774660183452918}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: group24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3901241577849685853}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: transform42
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4705030641838997236}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rail_Support_LeftTurn_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,7 +616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1451027769706400704}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: transform47
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,6 +648,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Place_Object2_SFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8538469319449396087, guid: 26da30053df589b47a60c477d9ac6e29,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2999929947618610976, guid: 26da30053df589b47a60c477d9ac6e29,
         type: 3}

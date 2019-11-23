@@ -16,6 +16,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-3348905496589284788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8609822546188964537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f840a2549b44c46b992eeb1dcf1b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnInterval: 15
+  spawnRange: 5
+  meeplePrefab: {fileID: 5964628261637944553, guid: 553ffaee2b4a2264f90b124033ab5afb,
+    type: 3}
+  spawnMax: 5
+  mask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1001 &314643854910376880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27,6 +47,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TicketBooth
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 2a529d3e9a96e5245b75790dff0580de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2a529d3e9a96e5245b75790dff0580de,
         type: 3}

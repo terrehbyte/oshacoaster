@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6835587939828156749}
   - component: {fileID: 6796516525809091290}
   - component: {fileID: 4061956502440354195}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,6 +151,7 @@ MonoBehaviour:
       m_Calls: []
   rideDuration: 6
   moneyPerRider: 5
+  chanceToInjury: 0.5
 --- !u!1 &6905443370781616935
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +164,7 @@ GameObject:
   - component: {fileID: 8573197294885784303}
   - component: {fileID: 3907365367473201192}
   - component: {fileID: 6473718224324700938}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -254,6 +255,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BrainScrambler_01
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d2e845d66279a4415824cad7251af9bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d2e845d66279a4415824cad7251af9bd,
         type: 3}

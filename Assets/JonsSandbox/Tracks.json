@@ -82,7 +82,7 @@
     "itemname": "Ticket booth",
     "desc": "Wheree else can they buy tickets??",
     "prefab": "TicketBooth",
-    "purchasecost": 30,
+    "purchasecost": 500,
     "maintcost": 10,
     "quality": 0,
     "maxspeed": 0,

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7400658459832165167}
   - component: {fileID: 3900513612549133846}
   - component: {fileID: 4052618609603565396}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 1217474762314410054}
   - component: {fileID: 3930553763682396902}
   - component: {fileID: 690949698621122892}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,6 +256,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Carousel
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0558dd4b1fb2ddb47b9c63ab30b49842,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0558dd4b1fb2ddb47b9c63ab30b49842,
         type: 3}
