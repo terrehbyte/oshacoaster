@@ -205,7 +205,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh43950
+  m_Name: pb_Mesh126054
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -368,7 +368,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh44042
+  m_Name: pb_Mesh126156
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1787,7 +1787,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1324648562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf7bb469befcda479d0fb74652ad53b, type: 3}
+  m_Script: {fileID: 11500000, guid: da7b39a2275bf9f46ade256368b1daa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   monies: {fileID: 2081486106}
@@ -1959,7 +1959,6 @@ GameObject:
   - component: {fileID: 1456686364}
   - component: {fileID: 1456686363}
   - component: {fileID: 1456686365}
-  - component: {fileID: 1456686362}
   - component: {fileID: 1456686366}
   - component: {fileID: 1456686367}
   m_Layer: 0
@@ -1969,18 +1968,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1456686362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1456686361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!20 &1456686363
 Camera:
   m_ObjectHideFlags: 0
@@ -2952,7 +2939,7 @@ Transform:
   m_GameObject: {fileID: 1952294559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -3311,6 +3298,7 @@ GameObject:
   - component: {fileID: 2081486105}
   - component: {fileID: 2081486107}
   - component: {fileID: 2081486106}
+  - component: {fileID: 2081486108}
   m_Layer: 5
   m_Name: Monies
   m_TagString: Untagged
@@ -3389,7 +3377,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3455,6 +3443,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081486104}
   m_CullTransparentMesh: 0
+--- !u!114 &2081486108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081486104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c65dc52bd3adb48a29820ceca4351f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4088217585096605825
 PrefabInstance:
   m_ObjectHideFlags: 0
